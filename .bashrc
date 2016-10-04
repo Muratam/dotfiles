@@ -1,5 +1,5 @@
 # for mac ?
-alias ls='ls -G -F'
+alias ls='ls --color=auto -F'
 alias la='ls -a'
 alias ll='ls -l'
 alias l='ls'
@@ -18,3 +18,10 @@ export PS1="\[\e[30m\][\w]\n\[\e[36m\]../\W/ \$ \[\e[0m\]"
 
 #for mac jupyter note
 export PYTHONPATH=$PYTHONPATH:~/pylib
+export PATH=$PATH:~/node_modules/.bin:~/ruby/gems/bin:~/.local/bin
+export PATH=$PATH:~/perl5/bin:~/apt:~/ultrapiet
+export PERL5LIB=$PERL5LIB:~/perl5/lib/perl5
+export GEM_HOME=~/ruby/gems
+export PYTHONPATH=${PYTHONPATH}:/home/murata/python/pepper/naoqi
+export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/home/murata/python/pepper/naoqi
+unset MAILCHECK
