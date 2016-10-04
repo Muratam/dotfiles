@@ -8,6 +8,7 @@ setopt list_packed
 #setopt correct
 PROMPT="%F{2}[%~]
 %F{cyan}%1~ %(!.#.$) %f"
+RPROMPT='@%18>..>%m%>>'
 
 # cd + tab -> directory history
 setopt auto_pushd
