@@ -1,6 +1,6 @@
 [user]
-	email = murata@kmc.gr.jp
-	name = murata
+    email = murata@kmc.gr.jp
+    name = murata
 #[include]
 #    path = ~/.gituser
 #[filter "media"]
@@ -10,25 +10,25 @@
     ui = auto
 [alias]
     a = add -A
-	b = branch
+    b = branch
     c = commit -m
-	d = diff
-	l = log
+    d = diff
+    l = log
     p = push
     s = status
     po = push origin
-	pom = push origin master
-	ls = log --stat
+    pom = push origin master
+    ls = log --stat
     co = checkout
     cob = checkout -b
-	com = checkout master
+    com = checkout master
     resetfile = checkout HEAD --
     ac = commit -am
-	au = add -u # 新規ファイル以外 add
+    au = add -u # 新規ファイル以外 add
     ca = commit --amend #直前のコミットに修正を追加
     cp = cherry-pick #特定のコミットIDのもののみ反映
     dc = diff --cached #commitで反映される変更を表示
-	#pp = pull --prune
+    #pp = pull --prune
     #sta = stash
     #ap = add -p
 [core]
@@ -36,8 +36,8 @@
     autocrlf = input
     excludesfile = ~/.gitignore
 [browse-remote "github.com"]
-	top = https://{host}/{path}
-	ref = https://{host}/{path}/tree/{short_ref}
-	rev = https://{host}/{path}/commit/{commit}
-	pr = https://{host}/{path}/pull/{short_ref}
-	file = "https://{host}/{path}/{file.directory? and :tree or :blob}/{short_rev}/{file}{lines && \"#L%s\" % lines.join(\"-\")}"
+    top = https://{host}/{path}
+    ref = https://{host}/{path}/tree/{short_ref}
+    rev = https://{host}/{path}/commit/{commit}
+    pr = https://{host}/{path}/pull/{short_ref}
+    file = "https://{host}/{path}/{file.directory? and :tree or :blob}/{short_rev}/{file}{lines && \"#L%s\" % lines.join(\"-\")}"
