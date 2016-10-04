@@ -6,7 +6,7 @@ zstyle ':completion:*' list-colors ''
 setopt auto_cd
 setopt list_packed
 #setopt correct
-PROMPT="%F{2}[%~]
+PROMPT="%F{2}[%~ @%m]
 %F{cyan}%1~ %(!.#.$) %f"
 
 # cd + tab -> directory history
