@@ -15,5 +15,14 @@ export kmc="murata@kmc.gr.jp"
 export mars='murata@49.212.155.232'
 export PS1="\[\e[30m\][\w]\n\[\e[36m\]../\W/ \$ \[\e[0m\]"
 
-#for mac jupyter note
+# for mac jupyter note
 export PYTHONPATH=$PYTHONPATH:~/pylib
+
+# python virtual env
+[[ -d ~/py_env ]] && source ~/py_env/bin/activate
+
+# ruby rbenv
+[[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
+
+rsyncPullTwitterImages(){ rsync --delete -avz -e ssh murata@kmc.gr.jp:/home/murata/private_html/images/twitter/ /Users/murata/Library/Mobile\ Documents/com~apple~CloudDocs/Picture/twitter/ }
+rsyncPushTwitterImages(){ rsync --delete -avz /Users/murata/Library/Mobile\ Documents/com~apple~CloudDocs/Picture/twitter/ -e ssh murata@kmc.gr.jp:/home/murata/private_html/images/twitter/ }
