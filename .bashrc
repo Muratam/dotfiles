@@ -6,7 +6,6 @@ alias l='ls'
 alias grep='grep --color=auto'
 alias g='git'
 alias py='python3'
-alias code='code -r'
 alias glog='git log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s"'
 rkotlin(){ kotlinc -include-runtime -d app.jar $1;kotlin app.jar; }
 gr(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" ./ }
