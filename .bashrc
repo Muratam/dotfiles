@@ -20,7 +20,7 @@ export PS1="\[\e[30m\][\w]\n\[\e[36m\]../\W/ \$ \[\e[0m\]"
 export PYTHONPATH=$PYTHONPATH:~/python/library
 
 # python virtual env
-[[ -d ~/py_env ]] && source ~/py_env/bin/activate
+[[ -d ~/.py_env ]] && source ~/.py_env/bin/activate
 
 # ruby rbenv
 [[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
