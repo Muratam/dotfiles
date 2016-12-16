@@ -5,6 +5,6 @@ vendor/bundle
 .vscode/
 VSCode/
 VSCode.meta
-.idea/
+# .idea/
 __pycache__/
 .pyc
