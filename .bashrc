@@ -6,7 +6,6 @@ alias l='ls'
 alias du='du -h'
 alias ds='du -hs *'
 alias grep='grep --color=auto'
-alias gp='gp -q'
 alias od='od -c'
 alias g='git'
 alias py='python3 -q'
@@ -15,8 +14,6 @@ search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . }
 search(){ find .  -name "*$@*" | grep "$@" }
 rkotlin(){ kotlinc -include-runtime -d app.jar $1;kotlin app.jar; }
 
-export kmc="murata@kmc.gr.jp"
-export mars='murata@49.212.155.232'
 export rmate='-R 52698:localhost:52698'
 export PS1="\[\e[30m\][\w]\n\[\e[36m\]../\W/ \$ \[\e[0m\]"
 export LESS='-i -M -R -S -W -z-4 -x4 -F'
