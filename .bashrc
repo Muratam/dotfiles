@@ -9,10 +9,8 @@ alias grep='grep --color=auto'
 alias od='od -c'
 alias g='git'
 alias py='python3 -q'
-alias glog='git log --graph --all --format="%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s"'
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . }
 search(){ find .  -name "*$@*" | grep "$@" }
-rkotlin(){ kotlinc -include-runtime -d app.jar $1;kotlin app.jar; }
 
 export rmate='-R 52698:localhost:52698'
 export PS1="\[\e[30m\][\w]\n\[\e[36m\]../\W/ \$ \[\e[0m\]"

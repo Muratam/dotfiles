@@ -12,7 +12,7 @@
     a = add -A
     b = branch
     c = commit -m
-    d = diff --color-words
+    d = diff --color-words -U0 --ignore-blank-lines -w
     l = log
     p = push
     s = status
