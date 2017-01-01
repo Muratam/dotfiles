@@ -1,5 +1,10 @@
-# for mac
-alias ls='ls -G -F'
+
+if [[ "$(uname)" == 'Darwin' ]]; then
+  alias ls='ls -G -F'  
+else
+  alias ls='ls --color=auto -F'
+fi
+
 alias la='ls -a'
 alias ll='ls -lh'
 alias l='ls'
@@ -23,6 +28,19 @@ export PYTHONPATH=$PYTHONPATH:~/python/library
 
 # ruby rbenv
 [[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
+
+
+export PYTHONPATH=$PYTHONPATH:~/pylib
+
+if [[ "$(hostname)" == "ringo" ]]; then
+  export PATH=$PATH:~/node_modules/.bin:~/ruby/gems/bin:~/.local/bin
+  export PATH=$PATH:~/perl5/bin:~/apt:~/ultrapiet
+  export PERL5LIB=$PERL5LIB:~/perl5/lib/perl5
+  export GEM_HOME=~/ruby/gems
+  export PYTHONPATH=${PYTHONPATH}:/home/murata/python/pepper/naoqi
+  export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/home/murata/python/pepper/naoqi
+  unset MAILCHECK
+fi
 
 rsyncPullTwitterImages(){ rsync --delete -avz -e ssh murata@kmc.gr.jp:/home/murata/private_html/images/twitter/ /Users/murata/Library/Mobile\ Documents/com~apple~CloudDocs/Picture/twitter/; };
 rsyncPushTwitterImages(){ rsync --delete -avz /Users/murata/Library/Mobile\ Documents/com~apple~CloudDocs/Picture/twitter/ -e ssh murata@kmc.gr.jp:/home/murata/private_html/images/twitter/; };
