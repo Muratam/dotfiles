@@ -32,7 +32,7 @@ export PYTHONPATH=$PYTHONPATH:~/python/library
 
 export PYTHONPATH=$PYTHONPATH:~/pylib
 
-if [[$(hostname) == "ringo"]]; then
+if [[ "$(hostname)" == "ringo" ]]; then
   export PATH=$PATH:~/node_modules/.bin:~/ruby/gems/bin:~/.local/bin
   export PATH=$PATH:~/perl5/bin:~/apt:~/ultrapiet
   export PERL5LIB=$PERL5LIB:~/perl5/lib/perl5
@@ -44,4 +44,3 @@ fi
 
 rsyncPullTwitterImages(){ rsync --delete -avz -e ssh murata@kmc.gr.jp:/home/murata/private_html/images/twitter/ /Users/murata/Library/Mobile\ Documents/com~apple~CloudDocs/Picture/twitter/; };
 rsyncPushTwitterImages(){ rsync --delete -avz /Users/murata/Library/Mobile\ Documents/com~apple~CloudDocs/Picture/twitter/ -e ssh murata@kmc.gr.jp:/home/murata/private_html/images/twitter/; };
-
