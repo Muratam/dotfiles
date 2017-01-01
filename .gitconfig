@@ -12,7 +12,7 @@
     a = add -A
     b = branch
     c = commit -m
-    d = diff
+    d = diff --color-words -U0 --ignore-blank-lines -w
     l = log
     p = push
     s = status
@@ -28,6 +28,7 @@
     ca = commit --amend #直前のコミットに修正を追加
     cp = cherry-pick #特定のコミットIDのもののみ反映
     dc = diff --cached #commitで反映される変更を表示
+    br = browse-remote
     #pp = pull --prune
     #sta = stash
     #ap = add -p

@@ -2,3 +2,9 @@
 .DS_Store
 .*.swp
 vendor/bundle
+.vscode/
+VSCode/
+VSCode.meta
+# .idea/
+__pycache__/
+.pyc

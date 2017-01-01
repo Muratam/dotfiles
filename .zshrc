@@ -9,6 +9,7 @@ setopt list_packed
 PROMPT="%F{2}[%~ @%m]
 %F{cyan}%1~ %(!.#.$) %f"
 
+
 # cd + tab -> directory history
 setopt auto_pushd
 setopt pushd_ignore_dups
