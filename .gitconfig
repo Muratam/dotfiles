@@ -15,9 +15,12 @@
     d = diff --color-words -U0 --ignore-blank-lines -w
     l = log
     p = push
+    pl = pull
     s = status
     po = push origin
     pom = push origin master
+    plo = pull origin
+    plom = pull origin master
     ls = log --stat
     co = checkout
     cob = checkout -b
