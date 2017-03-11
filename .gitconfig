@@ -25,7 +25,7 @@
     resetfile = checkout HEAD --
     ac = commit -am
     au = add -u # 新規ファイル以外 add
-    ca = commit --amend #直前のコミットに修正を追加
+    ca = commit --amend -m #直前のコミットに修正を追加
     cp = cherry-pick #特定のコミットIDのもののみ反映
     dc = diff --cached #commitで反映される変更を表示
     br = browse-remote
