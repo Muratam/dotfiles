@@ -1,9 +1,14 @@
 source ~/.bashrc
+export LANG=ja_JP.UTF-8
 autoload -U compinit; compinit
 zstyle ':completion:*' list-colors ''
 #autoload predict-on
 #predict-on
 setopt auto_cd
+setopt auto_param_slash
+setopt auto_menu
+setopt complete_in_word
+setopt mark_dirs
 setopt list_packed
 #setopt correct
 PROMPT="%F{2}[%~ @%m]
