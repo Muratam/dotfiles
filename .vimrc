@@ -53,13 +53,13 @@ nnoremap <C-z> u
 nnoremap <C-S-z> r
 noremap <C-w> :wq<Return>
 noremap! <C-w> <ESC>:wq<Return>
-noremap <C-S-w> :q!<Return>
-noremap! <C-S-w> <ESC>:q!<Return>
-inoremap <ESC> <ESC>
+"noremap <C-S-w> :q!<Return>
+"noremap! <C-S-w> <ESC>:q!<Return>
+"inoremap <ESC> <ESC>
 " insert auto rr
-noremap <CR> i<CR><ESC>
-noremap <BS> a<BS><ESC>
-noremap <SPACE> a<SPACE><ESC>
+"noremap <CR> i<CR><ESC>
+"noremap <BS> a<BS><ESC>
+"noremap <SPACE> a<SPACE><ESC>
 noremap r <C-r>
 "nnoremap == gg=G''
 "nnoremap n  :NERDTree
