@@ -15,8 +15,12 @@ alias od='od -c'
 alias g='git'
 alias py='python3 -q'
 alias tar.gz="tar xfvz"
-search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . }
-search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" }
+search-word(){ 
+  grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . 
+}
+search(){ 
+  find . -follow -name "*$@*" 2> /dev/null | grep "$@" 
+}
 export rmate='-R 52698:localhost:52698'
 export PS1="\[\e[30m\][\w]\n\[\e[36m\]../\W/ \$ \[\e[0m\]"
 export LESS='-i -M -R -S -W -z-4 -x4 -F'

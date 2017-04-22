@@ -1,4 +1,5 @@
 source ~/.bashrc
+
 export LANG=ja_JP.UTF-8
 autoload -U compinit; compinit
 zstyle ':completion:*' list-colors ''
@@ -48,6 +49,7 @@ setopt EXTENDED_HISTORY
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # command hist color 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#fpath=(~/.zsh/zsh-completions/src $fpath)
 
 #setopt prompt_subst
 #function zle-line-init zle-keymap-select {
