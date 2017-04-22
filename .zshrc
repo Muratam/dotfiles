@@ -46,6 +46,9 @@ setopt EXTENDED_HISTORY
 
 # command color
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# command hist color 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 #setopt prompt_subst
 #function zle-line-init zle-keymap-select {
 #PROMPT="
