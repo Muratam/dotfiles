@@ -23,7 +23,7 @@ search(){
   find . -follow -name "*$@*" 2> /dev/null | grep "$@"
 }
 export rmate='-R 52698:localhost:52698'
-export PS1="\[\e[30m\][\w]\n\[\e[36m\]../\W/ \$ \[\e[0m\]"
+export PS1="\[\e[32m\][\w]\n\[\e[36m\]\W \$ \[\e[0m\]"
 export LESS='-i -M -R -S -W -z-4 -x4 -F'
 
 # for jupyter note
