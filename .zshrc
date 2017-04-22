@@ -5,6 +5,7 @@ zstyle ':completion:*' list-colors ''
 #autoload predict-on
 #predict-on
 setopt auto_cd
+#function chpwd() { ls }
 setopt auto_param_slash
 setopt auto_menu
 setopt complete_in_word
@@ -37,5 +38,18 @@ export SAVEHIST=10000
 setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
 
+
 # command color
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# マッチしたコマンドのヒストリを表示できるようにする
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+setopt bang_hist          # !を使ったヒストリ展開を行う(d)
+setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
+setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
+
