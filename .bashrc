@@ -14,6 +14,7 @@ alias grep='grep --color=auto'
 alias od='od -c'
 alias g='git'
 alias py='python3 -q'
+alias tar.gz="tar xfvz"
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" }
 export rmate='-R 52698:localhost:52698'

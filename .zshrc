@@ -5,6 +5,7 @@ zstyle ':completion:*' list-colors ''
 #autoload predict-on
 #predict-on
 setopt auto_cd
+#function chpwd() { ls }
 setopt auto_param_slash
 setopt auto_menu
 setopt complete_in_word
@@ -42,10 +43,9 @@ export SAVEHIST=10000
 setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
 
+
 # command color
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #setopt prompt_subst
 #function zle-line-init zle-keymap-select {
 #PROMPT="
@@ -56,9 +56,18 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #zle -N zle-line-init
 #zle -N zle-keymap-select
 #SPROMPT="%{$fg[cyan]%}%{$suggest%}(-__-)?< %B%r%b %{$fg[cyan]%}でしょうか? [(y)es,(n)o,(a)bort,(e)dit]:${reset_color} "
-
 #function command_not_found_handler() {
 #    echo "$fg[cyan](;-__-)< $0 というコマンドは見当たりませんが${reset_color}"
 #}
-
 #REPORTTIME=3
+
+# マッチしたコマンドのヒストリを表示できるようにする
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+setopt bang_hist          # !を使ったヒストリ展開を行う(d)
+setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
+setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
