@@ -38,21 +38,22 @@ set wildmode=longest,list,full
 "inoremap <C-f> <Esc>
 " remove highlights
 "nnoremap <Esc><Esc> <C-u>:noh<CR>
-noremap j gj
-noremap k gk
+"noremap j gj
+"noremap k gk
 " as gedit
-vnoremap <h> vh
-vnoremap <j> vj
-vnoremap <k> vk
-vnoremap <l> vl
-vnoremap <C-c> y
-nnoremap <C-v> p
-vnoremap <C-x> yx
-nnoremap <C-k> dd
-nnoremap <C-z> u
-nnoremap <C-S-z> r
-noremap <C-w> :wq<Return>
-noremap! <C-w> <ESC>:wq<Return>
+" vnoremap <h> vh
+" vnoremap <j> vj
+" vnoremap <k> vk
+" vnoremap <l> vl
+" vnoremap <C-c> y
+" nnoremap <C-v> p
+" vnoremap <C-x> yx
+" nnoremap <C-k> dd
+" nnoremap <C-z> u
+" nnoremap <C-S-z> r
+" noremap <C-w> :wq<Return>
+" noremap! <C-w> <ESC>:wq<Return>
+
 "noremap <C-S-w> :q!<Return>
 "noremap! <C-S-w> <ESC>:q!<Return>
 "inoremap <ESC> <ESC>
@@ -60,7 +61,7 @@ noremap! <C-w> <ESC>:wq<Return>
 "noremap <CR> i<CR><ESC>
 "noremap <BS> a<BS><ESC>
 "noremap <SPACE> a<SPACE><ESC>
-noremap r <C-r>
+"noremap r <C-r>
 "nnoremap == gg=G''
 "nnoremap n  :NERDTree
 "nnoremap v  :vs:VimShell
