@@ -51,3 +51,5 @@ if [[ "$(hostname)" == "ringo" ]]; then
   export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/home/murata/python/pepper/naoqi
   unset MAILCHECK
 fi
+
+if [[ $0 = "-bash" && `which zsh` ]]; then zsh;exit; fi
