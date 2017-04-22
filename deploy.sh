@@ -9,8 +9,8 @@ for f in .*;do
 done
 
 if [ ! -e ~/.zsh ];then
-    mkdir ~/.zsh
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-    git clone https://github.com/seebi/dircolors-solarized ~/.zsh/dircolors-solarized
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
+  mkdir ~/.zsh
 fi
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+git clone https://github.com/seebi/dircolors-solarized ~/.zsh/dircolors-solarized
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
