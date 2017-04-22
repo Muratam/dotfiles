@@ -14,6 +14,11 @@ setopt list_packed
 PROMPT="%F{2}[%~ @%m]
 %F{cyan}%1~ %(!.#.$) %f"
 
+autoload -Uz zmv
+alias mmv='noglob zmv -W'
+alias tree='tree -CF'
+alias htree='tree -hF'
+alias rl='rlwrap -pYellow -ic'
 
 # cd + tab -> directory history
 setopt auto_pushd
@@ -39,3 +44,21 @@ setopt EXTENDED_HISTORY
 
 # command color
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+#setopt prompt_subst
+#function zle-line-init zle-keymap-select {
+#PROMPT="
+#%{${fg[yellow]}%}%h:%~%{${reset_color}%}
+#%(?.%{$fg[green]%}.%{$fg[cyan]%})(%(!.#.)%(?!-__-) !;__;%) )${${KEYMAP/vicmd/|}/(main|viins)/<}%{${reset_color}%} "
+#zle reset-prompt
+#}
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+#SPROMPT="%{$fg[cyan]%}%{$suggest%}(-__-)?< %B%r%b %{$fg[cyan]%}でしょうか? [(y)es,(n)o,(a)bort,(e)dit]:${reset_color} "
+
+#function command_not_found_handler() {
+#    echo "$fg[cyan](;-__-)< $0 というコマンドは見当たりませんが${reset_color}"
+#}
+
+#REPORTTIME=3
