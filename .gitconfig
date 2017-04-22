@@ -16,7 +16,7 @@
     l = log
     p = push
     pl = pull
-    s = status
+    s = status --short
     po = push origin
     pom = push origin master
     plo = pull origin

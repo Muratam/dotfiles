@@ -16,6 +16,11 @@ alias od='od -c'
 alias g='git'
 alias py='python3 -q'
 alias tar.gz="tar xfvz"
+alias tree='tree -CF'
+alias htree='tree -hF'
+alias rl='rlwrap -pYellow -ic'
+if which rlwrap > /dev/null ;then alias sftp="rl sftp";fi
+
 search-word(){
   grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" .
 }
@@ -25,6 +30,8 @@ search(){
 export rmate='-R 52698:localhost:52698'
 export PS1="\[\e[32m\][\w]\n\[\e[36m\]\W \$ \[\e[0m\]"
 export LESS='-i -M -R -S -W -z-4 -x4 -F'
+export LANG=ja_JP.UTF-8
+
 
 # for jupyter note
 [[ -d ~/python/library ]] && export PYTHONPATH=$PYTHONPATH:~/python/library

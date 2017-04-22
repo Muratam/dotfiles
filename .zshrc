@@ -1,6 +1,5 @@
 source ~/.bashrc
 
-export LANG=ja_JP.UTF-8
 autoload -U compinit; compinit
 zstyle ':completion:*' list-colors ''
 setopt auto_cd
@@ -12,14 +11,9 @@ setopt list_packed
 
 # PROMPT変数で変数参照を可能に
 setopt prompt_subst
-PROMPT="%F{green}[%~ @%m]
-%(?!%F{cyan}%1~ %(!.#.$)!%F{red}%1~ !) %f"
 
 autoload -Uz zmv
 alias mmv='noglob zmv -W'
-alias tree='tree -CF'
-alias htree='tree -hF'
-alias rl='rlwrap -pYellow -ic'
 
 # cd + tab -> directory history
 setopt auto_pushd
@@ -55,3 +49,32 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # 実行時間が3秒以上ならtime表示
 REPORTTIME=3
+
+# vcs
+autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+
+# git prompt
+zstyle ':vcs_info:*' formats '%F{blue}%b%f'
+zstyle ':vcs_info:*' actionformats '%F{blue}%b%f(%F{red}%a%f)'
+add-zsh-hook precmd vcs_info
+
+function _vcs_git_indicator () {
+  typeset -A git_info
+  local git_indicator git_status
+  git_status=("${(f)$(git status --porcelain --branch 2> /dev/null)}")
+  (( $? == 0 )) && {
+    git_info[branch]="${${git_status[1]}#\#\# }"
+    shift git_status
+    git_info[changed]=${#git_status:#\?\?*}
+    git_info[untracked]=$(( $#git_status - ${git_info[changed]} ))
+    git_indicator=""
+    git_indicator+="%{%F{yellow}%}M${git_info[changed]}%{%f%} "
+    git_indicator+="%{%F{red}%}?${git_info[untracked]} %{%f%}"
+    #git_indicator+="%{%F{blue}%}${git_info[branch]}%{%f%}"
+  }
+  _vcs_git_indicator="${git_indicator}"
+}
+add-zsh-hook precmd _vcs_git_indicator
+PROMPT="%F{green}[%~ @%m] \$vcs_info_msg_0_ \$_vcs_git_indicator
+%(?!%F{cyan}%1~ %(!.#.$)!%F{red}%1~ !) %f"
