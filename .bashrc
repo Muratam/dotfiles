@@ -7,6 +7,7 @@ fi
 
 alias la='ls -a'
 alias ll='ls -lh'
+alias lla='ls -lah'
 alias l='ls'
 alias du='du -h'
 alias ds='du -hs *'
@@ -15,11 +16,11 @@ alias od='od -c'
 alias g='git'
 alias py='python3 -q'
 alias tar.gz="tar xfvz"
-search-word(){ 
-  grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . 
+search-word(){
+  grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" .
 }
-search(){ 
-  find . -follow -name "*$@*" 2> /dev/null | grep "$@" 
+search(){
+  find . -follow -name "*$@*" 2> /dev/null | grep "$@"
 }
 export rmate='-R 52698:localhost:52698'
 export PS1="\[\e[30m\][\w]\n\[\e[36m\]../\W/ \$ \[\e[0m\]"

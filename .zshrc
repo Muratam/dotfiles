@@ -3,18 +3,17 @@ source ~/.bashrc
 export LANG=ja_JP.UTF-8
 autoload -U compinit; compinit
 zstyle ':completion:*' list-colors ''
-#autoload predict-on
-#predict-on
 setopt auto_cd
-#function chpwd() { ls }
 setopt auto_param_slash
 setopt auto_menu
 setopt complete_in_word
 setopt mark_dirs
 setopt list_packed
-#setopt correct
-PROMPT="%F{2}[%~ @%m]
-%F{cyan}%1~ %(!.#.$) %f"
+
+# PROMPT変数で変数参照を可能に
+setopt prompt_subst
+PROMPT="%F{green}[%~ @%m]
+%(?!%F{cyan}%1~ %(!.#.$)!%F{red}%1~ !) %f"
 
 autoload -Uz zmv
 alias mmv='noglob zmv -W'
@@ -43,36 +42,16 @@ export HISTSIZE=2000
 export SAVEHIST=10000
 setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
+setopt bang_hist          # !を使ったヒストリ展開を行う(d)
+setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
+setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
 
 
 # command color
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# command hist color 
+# command hist color
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #fpath=(~/.zsh/zsh-completions/src $fpath)
 
-#setopt prompt_subst
-#function zle-line-init zle-keymap-select {
-#PROMPT="
-#%{${fg[yellow]}%}%h:%~%{${reset_color}%}
-#%(?.%{$fg[green]%}.%{$fg[cyan]%})(%(!.#.)%(?!-__-) !;__;%) )${${KEYMAP/vicmd/|}/(main|viins)/<}%{${reset_color}%} "
-#zle reset-prompt
-#}
-#zle -N zle-line-init
-#zle -N zle-keymap-select
-#SPROMPT="%{$fg[cyan]%}%{$suggest%}(-__-)?< %B%r%b %{$fg[cyan]%}でしょうか? [(y)es,(n)o,(a)bort,(e)dit]:${reset_color} "
-#function command_not_found_handler() {
-#    echo "$fg[cyan](;-__-)< $0 というコマンドは見当たりませんが${reset_color}"
-#}
-#REPORTTIME=3
-
-# マッチしたコマンドのヒストリを表示できるようにする
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-
-setopt bang_hist          # !を使ったヒストリ展開を行う(d)
-setopt share_history      # 他のシェルのヒストリをリアルタイムで共有する
-setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに保存する
+# 実行時間が3秒以上ならtime表示
+REPORTTIME=3
