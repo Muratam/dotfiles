@@ -2,6 +2,7 @@ source ~/.bashrc
 
 autoload -U compinit; compinit
 zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' special-dirs true # ..を補完
 setopt auto_cd
 setopt auto_param_slash
 setopt auto_menu
@@ -13,7 +14,7 @@ setopt list_packed
 setopt prompt_subst
 
 autoload -Uz zmv
-alias mmv='noglob zmv -W'
+alias zmv='noglob zmv -W'
 
 # cd + tab -> directory history
 setopt auto_pushd
@@ -29,6 +30,15 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # ctrl-w -> delete until '/' treat these words as normal chalacters
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+setopt interactive_comments  # コマンドラインでも # 以降をコメントと見なす
+setopt magic_equal_subst     # --prefix=/usr などの補完
+setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
+setopt brace_ccl # 例 : mkdir {1-3} で フォルダ1, 2, 3を作れる
+# 今いるディレクトリを補完候補から外す
+zstyle ':completion:*' ignore-parents parent pwd ..
+
+
+
 
 # history
 export HISTFILE=${HOME}/.zsh_hist
@@ -48,7 +58,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #fpath=(~/.zsh/zsh-completions/src $fpath)
 
 # 実行時間が3秒以上ならtime表示
-REPORTTIME=3
+# REPORTTIME=3
 
 # vcs
 autoload -Uz vcs_info

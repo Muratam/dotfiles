@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+if [ ! $2 ];then
+  echo "Usage :\n $ sss hoge.jp /home/hoge"
+  exit 1;
+fi
+if [[ ! `which sshfs` ]]; then
+  echo "need sshfs"
+  exit 1;
+fi
+
+echo "ssh $1:$2/ => ~/mnt/$1/"
+
+mkdir -p ~/mnt/$1
+sshfs $1:$2 ~/mnt/$1
+ssh $1
+umount ~/mnt/$1
+rmdir ~/mnt/$1
