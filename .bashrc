@@ -27,14 +27,12 @@ search-word(){
 search(){
   find . -follow -name "*$@*" 2> /dev/null | grep "$@"
 }
-export rmate='-R 52698:localhost:52698'
-export PS1="\[\e[32m\][\w]\n\[\e[36m\]\W \$ \[\e[0m\]"
+# export rmate='-R 52698:localhost:52698'
+# export PS1="\[\e[32m\][\w]\n\[\e[36m\]\W \$ \[\e[0m\]"
 export LESS='-i -M -R -S -W -z-4 -x4 -F'
 export LANG=ja_JP.UTF-8
 
 
-# for jupyter note
-[[ -d ~/python/library ]] && export PYTHONPATH=$PYTHONPATH:~/python/library
 # python virtual env
 [[ -d ~/.py_env ]] && source ~/.py_env/bin/activate
 # ruby rbenv
@@ -43,13 +41,15 @@ export LANG=ja_JP.UTF-8
 [[ -d ~/codes/dlang/workspace-d ]] && export PATH=$PATH:~/codes/dlang/workspace-d/bin
 
 if [[ "$(hostname)" == "ringo" ]]; then
-  export PATH=$PATH:~/node_modules/.bin:~/ruby/gems/bin:~/.local/bin
-  export PATH=$PATH:~/perl5/bin:~/apt:~/ultrapiet
-  export PERL5LIB=$PERL5LIB:~/perl5/lib/perl5
-  export GEM_HOME=~/ruby/gems
-  export PYTHONPATH=${PYTHONPATH}:/home/murata/python/pepper/naoqi
-  export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:/home/murata/python/pepper/naoqi
+  export PATH=$PATH:${HOME}/node_modules/.bin:${HOME}/ruby/gems/bin:${HOME}/.local/bin
+  export PATH=$PATH:${HOME}/perl5/bin:${HOME}/apt:${HOME}/ultrapiet
+  export PERL5LIB=$PERL5LIB:${HOME}/perl5/lib/perl5
+  export GEM_HOME=${HOME}/ruby/gems
+  export PYTHONPATH=${PYTHONPATH}:${HOME}/python/pepper/naoqi
+  export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${HOME}/python/pepper/naoqi
   unset MAILCHECK
 fi
+
+export PYTHONPATH=${PYTHONPATH}:${HOME}/dotfiles/lib
 
 if [[ $0 = "-bash" && `which zsh` ]]; then zsh;exit; fi
