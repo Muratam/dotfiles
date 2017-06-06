@@ -18,7 +18,7 @@ alias grep='grep --color=auto'
 alias od='od -c'
 alias g='git'
 alias py='python3 -q'
-alias ipy='ipython --quiet --autoindent --pprint --pylab --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic'
+alias ipy="ipython --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c 'from numpy import *' -i"
 alias pip="pip3"
 alias tar.gz="tar xfvz"
 alias tree='tree -CF'
