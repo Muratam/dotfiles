@@ -18,6 +18,8 @@ alias grep='grep --color=auto'
 alias od='od -c'
 alias g='git'
 alias py='python3 -q'
+alias ipy='ipython --quiet --autoindent --pprint --pylab --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic'
+alias pip="pip3"
 alias tar.gz="tar xfvz"
 alias tree='tree -CF'
 alias htree='tree -hF'
@@ -39,10 +41,8 @@ export LANG=ja_JP.UTF-8
 
 # python virtual env
 #[[ -d ~/.py_env ]] && source ~/.py_env/bin/activate
-alias pip="pip3"
-
 # ruby rbenv
-[[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
+#[[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
 # rust cargo
 [[ -d ~/.cargo  ]] && export PATH=${HOME}/.cargo/bin:${PATH} && export RUST_SRC_PATH=${HOME}/.multirust/toolchains/beta-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
