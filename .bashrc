@@ -38,7 +38,9 @@ export LANG=ja_JP.UTF-8
 
 
 # python virtual env
-[[ -d ~/.py_env ]] && source ~/.py_env/bin/activate
+#[[ -d ~/.py_env ]] && source ~/.py_env/bin/activate
+alias pip="pip3"
+
 # ruby rbenv
 [[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
 # rust cargo
