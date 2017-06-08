@@ -21,14 +21,17 @@ class DL72:
             os.mkdir(dirname)
         return dirname + str(local_prefix) + os.path.basename(url)
 
-    def download(url, dirname="", local_prefix="", binary=True):
+    def download(url, dirname="", local_prefix="", binary=True, force_name=""):
         local_path = DL72._make_local_path(url, dirname, local_prefix)
+        if force_name:
+            local_path = force_name
         if binary:
             with open(local_path, "wb") as f:
                 shutil.copyfileobj(requests.get(url, stream=True).raw, f)
         else:
             with open(local_path, "w") as f:
                 f.write(requests.get(url).text)
+
 
 if __name__ == "__main__":
     print("""Usage :
