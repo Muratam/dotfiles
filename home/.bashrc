@@ -53,7 +53,7 @@ export-path ~/.local/bin
 
 # homeshick
 if [[ -d ~/.homesick/repos ]]; then
-  export PYTHONPATH=${PYTHONPATH}:~/.homesick/repos/dotfiles/bin
+  export PYTHONPATH=${PYTHONPATH}:~/.homesick/repos/dotfiles/module/python3
   export PATH=${PATH}:~/.homesick/repos/dotfiles/bin
   if [[ -d ~/.homesick/repos/homeshick ]]; then
     alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
