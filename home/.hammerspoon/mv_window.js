@@ -10,7 +10,7 @@ function getDockInfo() {
   apps = Application('System Events').processes();
   for (app of apps) {
     if (app.name() != 'Dock') continue;
-    return app.uiElements()[0].uiElements().map(function(x) { return x.name() })
+    return app.uiElements()[0].uiElements().map(function (x) { return x.name() })
   }
 }
 
@@ -33,10 +33,10 @@ function setWindowRect(window, x, y, w, h) {
 function toggleActivateApplication(name) {
   app = Application(name);
   if (app.frontmost()) {
-    Application('System Events').keyCode(48, {using: 'command down'})
+    Application('System Events').keyCode(48, { using: 'command down' })
   } else {
     if (name !== 'iTunes') app.launch()
-      app.activate()
+    app.activate()
   }
 }
 function keyMove(mv) {
@@ -62,6 +62,8 @@ keyMovements = {
   MAX: [0, 0, 1, 1],
 };
 function run(input, parameters) {
+  //show(getDockInfo())
+
   if (input.length > 0) {
     if (input[0] in keyMovements) {
       keyMove(keyMovements[input[0]])
