@@ -6,4 +6,4 @@ update_vscode_background(){
     echo "not supported os (now only for macosx)"
   fi
 }
-update_vscode_background "${HOME}/Pictures/background/sagisawa.jpg"
+update_vscode_background "${HOME}/icloud/pics/background/sagisawa.jpg"
