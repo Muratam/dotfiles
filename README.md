@@ -18,6 +18,12 @@ $ homeshick clone muratam/dotfiles
 $ homeshick link dotfiles
 ```
 
+# init enveronment once
+```
+$ sh init.sh
+```
+
+
 # symlink vscode settings json for macosx
 ```
 $ cd Library/Application\ Support/Code/User
