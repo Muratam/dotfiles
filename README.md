@@ -17,3 +17,10 @@ $ alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
 $ homeshick clone muratam/dotfiles
 $ homeshick link dotfiles
 ```
+
+# symlink vscode settings json for macosx
+```
+$ cd Library/Application\ Support/Code/User
+$ ln -s ~/.homesick/repos/dotfiles/home/.config/Code/User/keybindings.json keybindings.json
+$ ln -s ~/.homesick/repos/dotfiles/home/.config/Code/User/settings.json settings.json
+```
