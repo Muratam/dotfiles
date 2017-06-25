@@ -1,0 +1,11 @@
+Package    Version  
+---------- ---------
+certifi    2017.4.17
+chardet    3.0.3    
+idna       2.5      
+numpy      1.12.1   
+pdfminer   20140328 
+pip        9.0.1    
+setuptools 32.1.0   
+urllib3    1.21.1   
+wheel      0.29.0   

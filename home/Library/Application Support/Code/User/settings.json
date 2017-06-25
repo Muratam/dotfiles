@@ -1,0 +1,77 @@
+{
+    "git.autofetch": false,
+    "editor.scrollBeyondLastLine": false,
+    "editor.autoClosingBrackets": false,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.tabCompletion": true,
+    "editor.detectIndentation": true,
+    "editor.renderIndentGuides": true,
+    "editor.minimap.enabled": false,
+    "editor.renderLineHighlight": "all",
+    "editor.renderWhitespace": "all",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorStyle": "line-thin",
+    "window.zoomLevel": 0,
+    "window.openFoldersInNewWindow": "off",
+    "window.openFilesInNewWindow": "off",
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "monaco",
+    "terminal.integrated.scrollback": 10000,
+    "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "vs-seti",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.formatting.provider": "autopep8",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.DS_Store": true,
+        "**/*.meta": true,
+        "**/*.pyc": true,
+        "**/__pycache__/": true
+    },
+    "background.useDefault": false,
+    "background.customImages": [
+        "/Users/murata/Pictures/background/chama.jpg",
+        "/Users/murata/Pictures/background/chama.jpg",
+        "/Users/murata/Pictures/background/chama.jpg"
+    ],
+    "TodoParser": {
+        "markers": [
+            "WARN:",
+            "NOTE:"
+        ]
+    },
+    //ワンライン実行用
+    "runner.languageMap": {
+        "cpp": "vscode_cpp_run(){ clang++ -std=c++14 -o out $1; if [ -f test.txt ]; then cat test.txt | ./out ;else ./out ; fi ;rm ./out; }; vscode_cpp_run ",
+        "python": "python3 ",
+        "d": "dub test -q ;echo "
+    },
+    "latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
+    "clang.executable": "clang++",
+    "clang.cxxflags": [
+        "-std=c++14"
+    ],
+    "clang-format.style": "Google",
+    "d.stdlibPath": "/usr/local/Cellar/dmd/2.071.2/include/dlang/dmd",
+    "dfmt.braceStyle": "stroustrup",
+    //"d.dfmt.braceStyle": "stroustrup"
+    "rust.formatOnSave": true,
+    "rust.rls": {
+        "executable": "rustup",
+        "args": [
+            "run",
+            "nightly",
+            "rls"
+        ],
+        "revealOutputChannelOn": "info"
+    }
+}

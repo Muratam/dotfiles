@@ -1,1 +1,0 @@
-echo "  .composite.panel.integrated-terminal{ background-image: url('/Users/murata/Pictures/background/sagisawa.jpg');background-position: center center; background-repeat: no-repeat;background-attachment: fixed;  background-size: cover; }" >> /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/out/vs/workbench/electron-browser/workbench.main.css
