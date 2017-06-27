@@ -1,6 +1,12 @@
 # dotfiles of murata
 managed under homeshick
 
+# Finally
+```
+curl https://raw.githubusercontent.com/Muratam/dotfiles/master/init.sh | bash
+```
+
+
 # how to install homeshick
 ```
 # mac osx
