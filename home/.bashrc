@@ -11,7 +11,6 @@ fi
 alias la='ls -a'
 alias ll='ls -lh'
 alias lla='ls -lah'
-#alias lns='ls -la | grep -- "->"'
 alias l='ls'
 alias cp='cp -i'
 alias du='du -h'
@@ -20,7 +19,6 @@ alias grep='grep --color=auto'
 alias od='od -c'
 alias g='git'
 alias py='python3 -q'
-alias ipy="ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c 'from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo import matplotlib.pyplot as plt`' -i"
 alias pip="pip3"
 alias tar.gz="tar xfvz"
 alias tree='tree -CF'
@@ -33,6 +31,7 @@ fi
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
+ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c 'from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo import matplotlib.pyplot as plt`' -i ; }
 
 ################################
 ### SET ENVIRONMENT VARIABLE ###
