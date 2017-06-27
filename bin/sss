@@ -15,8 +15,8 @@ fi
 
 echo "ssh $1:$sshedpath/ => ~/mnt/$1/"
 
-mkdir -p ~/.mnt/$1
-sshfs $1:$sshedpath ~/.mnt/$1
+mkdir -p ~/.sss_mnt/$1
+sshfs $1:$sshedpath ~/.sss_mnt/$1
 ssh $1
-diskutil unmount force ~/.mnt/$1
-rmdir ~/.mnt/$1
+diskutil unmount force ~/.sss_mnt/$1
+rmdir ~/.sss_mnt/$1
