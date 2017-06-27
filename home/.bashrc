@@ -60,6 +60,11 @@ if [[ -d ~/.homesick/repos ]]; then
   fi
 fi
 
+# nvm
+if [[ -d "{$HOME}/.nvm" ]]; then
+  export NVM_DIR="{$HOME}/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+fi
 
 #########################
 ### FOR EACH COMPUTER ###
