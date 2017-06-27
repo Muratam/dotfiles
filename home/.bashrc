@@ -76,7 +76,4 @@ fi
 
 
 # if zsh exists, force bash -> zsh
-if [[ $0 = "-bash" && `which zsh` ]]; then
-  zsh ;
-  exit;
-fi
+if [[ $0 = "-bash" &&  -x "$(command -v zsh)" ]]; then zsh ; exit; fi
