@@ -1,34 +1,10 @@
 # dotfiles of murata
 managed under homeshick
 
-# Finally
+# only to do (after installed git)
 ```
-curl https://raw.githubusercontent.com/Muratam/dotfiles/master/init.sh | bash
+$ curl https://raw.githubusercontent.com/Muratam/dotfiles/master/init.sh | bash
 ```
-
-
-# how to install homeshick
-```
-# mac osx
-$ brew install homeshick
-
-# other os
-$ git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-$ alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
-
-```
-
-# symlink dotfiles
-```
-$ homeshick clone muratam/dotfiles
-$ homeshick link dotfiles
-```
-
-# init enveronment once
-```
-$ bash ~/.homesick/repos/dotfiles/init.sh
-```
-
 
 # symlink vscode settings json for macosx
 ```
