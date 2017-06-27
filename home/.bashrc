@@ -11,6 +11,7 @@ fi
 alias la='ls -a'
 alias ll='ls -lh'
 alias lla='ls -lah'
+#alias lns='ls -la | grep -- "->"'
 alias l='ls'
 alias cp='cp -i'
 alias du='du -h'
@@ -31,7 +32,7 @@ if [[ -x "$(command -v rlwrap)" ]] ; then
 fi
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
-
+lns(){ lla | grep -- "@ ->" | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 
 ################################
 ### SET ENVIRONMENT VARIABLE ###
