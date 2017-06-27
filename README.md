@@ -20,7 +20,7 @@ $ homeshick link dotfiles
 
 # init enveronment once
 ```
-$ sh init.sh
+$ sh ~/.homesick/repos/dotfiles/init.sh
 ```
 
 
