@@ -11,7 +11,7 @@
     "editor.renderLineHighlight": "all",
     "editor.renderWhitespace": "all",
     "editor.cursorBlinking": "smooth",
-    "editor.cursorStyle": "line-thin",
+    "editor.cursorStyle": "line",
     "window.zoomLevel": 0,
     "window.openFoldersInNewWindow": "off",
     "window.openFilesInNewWindow": "off",

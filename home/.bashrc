@@ -24,6 +24,9 @@ alias tar.gz="tar xfvz"
 alias tree='tree -CF'
 alias htree='tree -hF'
 alias pe='perl -pe'
+alias xargs='xargs -I{} bash -c'
+alias h='highlight -O xterm256 -s rdark --force'
+
 if [[ -x "$(command -v rlwrap)" ]] ; then
   alias rl='rlwrap -pYellow -ic'
   alias sftp="rl sftp";

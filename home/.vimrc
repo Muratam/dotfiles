@@ -70,7 +70,7 @@ set pastetoggle=<C-k>
 inoremap <C-f> <Esc>
 " remove highlights
 nnoremap <Esc><Esc> <C-u>:noh<CR>
-
+nnoremap q <Nop>
 
 augroup local
   au!
