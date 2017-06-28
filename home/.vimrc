@@ -82,7 +82,6 @@ map! <C-k> <Plug>KeyMapRotate
 
 " plug
 call plug#begin('~/.vim/plugged')
-Plug 'tomasr/molokai'
 Plug 'Raimondi/delimitMate'
 Plug 'croaker/mustang-vim'
 Plug 'airblade/vim-gitgutter'
@@ -90,6 +89,7 @@ Plug 'itchyny/vim-cursorword'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
+Plug 'nanotech/jellybeans.vim'
 if v:version > 702
   Plug 'itchyny/lightline.vim'
 endif
@@ -196,7 +196,7 @@ function! GitRelativePath()
 endfunction
 
 "colorscheme
-colorscheme molokai
+colorscheme jellybeans
 if &term =~ "xterm-256color" || "screen-256color"
     set t_Co=256
     set t_Sf=[3%dm
@@ -206,7 +206,6 @@ elseif &term =~ "xterm-color"
     set t_Sf=[3%dm
     set t_Sb=[4%dm
 endif
-let g:molokai_original = 1
 let g:rehash256 = 1
 
 syntax enable
