@@ -40,6 +40,7 @@ ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title 
 # export PS1="\[\e[32m\][\w]\n\[\e[36m\]\W \$ \[\e[0m\]"
 export LESS='-i -M -R -S -W -z-4 -x4 -F'
 export LANG=ja_JP.UTF-8
+export EDITOR=vi
 
 export-path(){ [[ -d $1 ]] && export PATH=${PATH}:$1; }
 # rust cargo
