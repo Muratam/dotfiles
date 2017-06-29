@@ -25,7 +25,8 @@ alias tree='tree -CF'
 alias htree='tree -hF'
 alias pe='perl -pe'
 alias xargs='xargs -I{} bash -c'
-alias h='highlight -O xterm256 -s rdark --force'
+alias ca='highlight -O xterm256 -s rdark --force'
+alias les="/usr/share/vim/**/less.sh"
 alias t='tmux'
 alias ta='tmux a'
 
@@ -41,9 +42,8 @@ ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title 
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
-# ${HOME} will be expanded inside double quotation
 # export PS1="\[\e[32m\][\w]\n\[\e[36m\]\W \$ \[\e[0m\]"
-export LESS='-i -M -R -S -W -z-4 -x4 -F'
+export LESS='-imMRSF' #'-iMRS -W -z-4 -x4 -F'
 export LANG=ja_JP.UTF-8
 export EDITOR=vi
 
@@ -84,8 +84,6 @@ if [[ "$(hostname)" == "ringo" ]]; then
 elif [[ "$(uname)" == 'Darwin' ]]; then
   export RUST_SRC_PATH=~/.multirust/toolchains/beta-x86_64-apple-darwin/lib/rustlib/src/rust/src
 fi
-
-
 
 # if zsh exists, force bash -> zsh
 if [[ $0 = "-bash" &&  -x "$(command -v zsh)" ]]; then zsh ; exit; fi
