@@ -68,21 +68,27 @@ set pastetoggle=<C-k>
 " keymap
 " esc to c-f
 inoremap <C-f> <Esc>
+vnoremap <C-f> <Esc>
 nnoremap <C-f> <Nop>
 " C-a,C-e -> general mode
 nnoremap <C-a> ^
 nnoremap <C-e> $
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+nnoremap <C-k> <C-u>
+nnoremap <C-j> <C-d>
+nnoremap <C-l> $
+nnoremap <C-h> ^
 " remove highlights
 nnoremap <Esc><Esc> <C-u>:noh<CR>
 nnoremap q <Nop>
+nnoremap ; :
 
 augroup local
   au!
   au OptionSet paste call lightline#update()
 augroup END
 
-map <C-k> <Plug>KeyMapRotate
-map! <C-k> <Plug>KeyMapRotate
 
 " plug
 call plug#begin('~/.vim/plugged')
