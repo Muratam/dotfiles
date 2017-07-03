@@ -47,7 +47,7 @@ export LESS='-imMRSF' #'-iMRS -W -z-4 -x4 -F'
 export LANG=ja_JP.UTF-8
 export EDITOR=vi
 
-export-path(){ [[ -d $1 ]] && export PATH=${PATH}:$1; }
+export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
 # rust cargo
 export-path ~/.cargo/bin
 # workspace-d
@@ -56,6 +56,7 @@ export-path ~/codes/dlang/workspace-d/bin
 export-path ~/node_modules/.bin
 # pip modules without sudo
 export-path ~/.local/bin
+export-path /usr/local/bin
 
 # homeshick
 if [[ -d ~/.homesick/repos ]]; then
