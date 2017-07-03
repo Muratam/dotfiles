@@ -36,6 +36,10 @@ set listchars=tab:>-,trail:_
 "自動インデント
 set autoindent
 set cindent
+" trim space
+autocmd BufWritePre * :%s/\s\+$//ge
+
+
 
 " Change tabwidth by file type
 " kotlin is not included (not supported by default)
