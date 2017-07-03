@@ -84,10 +84,10 @@ nnoremap <Esc><Esc> <C-u>:noh<CR>
 nnoremap q <Nop>
 nnoremap ; :
 
-augroup local
-  au!
-  au OptionSet paste call lightline#update()
-augroup END
+"augroup local
+"  au!
+"  au OptionSet paste call lightline#update()
+"augroup END
 
 
 " plug
