@@ -74,5 +74,6 @@
         ],
         "revealOutputChannelOn": "info"
     },
-    "workbench.welcome.enabled": false
+    "workbench.welcome.enabled": false,
+    "background.useFront": false
 }
