@@ -20,7 +20,7 @@ alias od='od -c'
 alias g='git'
 alias py='python3 -q'
 alias pip="pip3"
-alias tar.gz="tar xfvz"
+alias tar="tar xf"
 alias tree='tree -CF'
 alias htree='tree -hF'
 alias pe='perl -pe'
@@ -56,7 +56,10 @@ export-path ~/codes/dlang/workspace-d/bin
 export-path ~/node_modules/.bin
 # pip modules without sudo
 export-path ~/.local/bin
+# /usr/local/bin を優先
 export-path /usr/local/bin
+# local installs
+export-path ~/.usr/bin
 
 # homeshick
 if [[ -d ~/.homesick/repos ]]; then

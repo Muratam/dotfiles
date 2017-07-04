@@ -36,6 +36,10 @@ set listchars=tab:>-,trail:_
 "自動インデント
 set autoindent
 set cindent
+" trim space
+autocmd BufWritePre * :%s/\s\+$//ge
+
+
 
 " Change tabwidth by file type
 " kotlin is not included (not supported by default)
@@ -84,10 +88,10 @@ nnoremap <Esc><Esc> <C-u>:noh<CR>
 nnoremap q <Nop>
 nnoremap ; :
 
-augroup local
-  au!
-  au OptionSet paste call lightline#update()
-augroup END
+"augroup local
+"  au!
+"  au OptionSet paste call lightline#update()
+"augroup END
 
 
 " plug
