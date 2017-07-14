@@ -42,7 +42,6 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 
 " Change tabwidth by file type
-" kotlin is not included (not supported by default)
 au FileType python,java,scala,groovy
   \ setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
@@ -57,9 +56,6 @@ set smartcase
 set wrapscan
 "検索をハイライト
 set hlsearch
-
-"scrollを快適にする-これを使うと長押しがうまく見れなくなる
-"set lazyredraw
 
 "検索やコマンドの履歴
 set history=50

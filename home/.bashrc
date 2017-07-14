@@ -29,6 +29,7 @@ alias ca='highlight -O xterm256 -s rdark --force'
 alias les="/usr/share/vim/**/less.sh"
 alias t='tmux'
 alias ta='tmux a'
+alias crontab='crontab -i'
 
 if [[ -x "$(command -v rlwrap)" ]] ; then
   alias rl='rlwrap -pYellow -ic'
