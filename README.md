@@ -9,7 +9,7 @@ $ curl https://raw.githubusercontent.com/Muratam/dotfiles/master/init.sh | bash
 or (shortly)
 
 ```
-$ curl -L muratam.0am.jp/init.sh
+$ curl -L muratam.0am.jp/init.sh | bash
 ```
 
 # symlink vscode settings json for macosx
