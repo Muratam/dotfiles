@@ -6,6 +6,12 @@ managed under homeshick
 $ curl https://raw.githubusercontent.com/Muratam/dotfiles/master/init.sh | bash
 ```
 
+or (shortly)
+
+```
+$ curl -L muratam.0am.jp/init.sh
+```
+
 # symlink vscode settings json for macosx
 ```
 $ cd Library/Application\ Support/Code/User
