@@ -37,6 +37,7 @@
         "**/*.pyc": true,
         "**/__pycache__/": true
     },
+    "background.useFront": false,
     "background.useDefault": false,
     "background.customImages": [
         "/Users/murata/icloud/pics/background/chama.jpg",
@@ -75,5 +76,4 @@
         "revealOutputChannelOn": "info"
     },
     "workbench.welcome.enabled": false,
-    "background.useFront": false
 }
