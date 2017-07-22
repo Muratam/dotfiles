@@ -76,4 +76,5 @@
         "revealOutputChannelOn": "info"
     },
     "workbench.welcome.enabled": false,
+    "rust.mode": null,
 }

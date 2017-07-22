@@ -20,7 +20,7 @@ alias od='od -c'
 alias g='git'
 alias py='python3 -q'
 alias pip="pip3"
-alias tar="tar xf"
+alias untar="tar xf"
 alias tree='tree -CF'
 alias htree='tree -hF'
 alias pe='perl -pe'
@@ -30,6 +30,7 @@ alias les="/usr/share/vim/**/less.sh"
 alias t='tmux'
 alias ta='tmux a'
 alias crontab='crontab -i'
+alias tac='tail -r'
 
 if [[ -x "$(command -v rlwrap)" ]] ; then
   alias rl='rlwrap -pYellow -ic'
@@ -78,6 +79,9 @@ if [[ -d "${HOME}/.nvm" ]]; then
   [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh" > /dev/null
   nvm use stable > /dev/null
 fi
+
+# nim
+[[ -x "$(command -v nim)" ]] && nimc(){ nim c -d:release -r --verbosity:0 $@; }
 
 #########################
 ### FOR EACH COMPUTER ###
