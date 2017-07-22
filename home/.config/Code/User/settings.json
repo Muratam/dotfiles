@@ -62,10 +62,6 @@
         "-std=c++14"
     ],
     "clang-format.style": "Google",
-    "d.stdlibPath": "/usr/local/Cellar/dmd/2.071.2/include/dlang/dmd",
-    "dfmt.braceStyle": "stroustrup",
-    //"d.dfmt.braceStyle": "stroustrup"
-    "rust.formatOnSave": true,
     "rust.rls": {
         "executable": "rustup",
         "args": [
@@ -73,8 +69,12 @@
             "nightly",
             "rls"
         ],
-        "revealOutputChannelOn": "info"
+        "revealOutputChannelOn": "info",
+        "useRustfmt": true
     },
     "workbench.welcome.enabled": false,
-    "rust.mode": null,
+    "rust.rustup": {
+        "toolchain": "nightly-x86_64-apple-darwin"
+    },
+    "rust.mode": "rls",
 }

@@ -51,10 +51,6 @@ export LANG=ja_JP.UTF-8
 export EDITOR=vi
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
-# rust cargo
-export-path ~/.cargo/bin
-# workspace-d
-export-path ~/codes/dlang/workspace-d/bin
 # node modules without sudo
 export-path ~/node_modules/.bin
 # pip modules without sudo
@@ -67,33 +63,14 @@ export-path ~/.usr/bin
 # homeshick
 if [[ -d ~/.homesick/repos ]]; then
   export PYTHONPATH=${PYTHONPATH}:~/.homesick/repos/dotfiles/module/python3
-  export PATH=${PATH}:~/.homesick/repos/dotfiles/bin
+  export-path ~/.homesick/repos/dotfiles/bin
   if [[ -d ~/.homesick/repos/homeshick ]]; then
     alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
   fi
 fi
 
-# nvm
-if [[ -d "${HOME}/.nvm" ]]; then
-  export NVM_DIR="${HOME}/.nvm"
-  [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh" > /dev/null
-  nvm use stable > /dev/null
-fi
 
-# nim
-[[ -x "$(command -v nim)" ]] && nimc(){ nim c -d:release -r --verbosity:0 $@; }
-
-#########################
-### FOR EACH COMPUTER ###
-#########################
-
-if [[ "$(hostname)" == "ringo" ]]; then
-  export PYTHONPATH=${PYTHONPATH}:~/python/pepper/naoqi
-  export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:~/python/pepper/naoqi
-  unset MAILCHECK
-elif [[ "$(uname)" == 'Darwin' ]]; then
-  export RUST_SRC_PATH=~/.multirust/toolchains/beta-x86_64-apple-darwin/lib/rustlib/src/rust/src
-fi
-
+# include languages settings (for miner languages)
+source ~/.bashrc_languages.sh
 # if zsh exists, force bash -> zsh
 if [[ $0 = "-bash" &&  -x "$(command -v zsh)" ]]; then zsh ; exit; fi
