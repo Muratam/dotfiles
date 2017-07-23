@@ -41,12 +41,11 @@ search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
 ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
-
+[[ -x "$(command -v vtop)" ]] && alias vtop="vtop --theme seti"
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
-# export PS1="\[\e[32m\][\w]\n\[\e[36m\]\W \$ \[\e[0m\]"
-export LESS='-imMRSF' #'-iMRS -W -z-4 -x4 -F'
+export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
 export EDITOR=vi
 
@@ -68,7 +67,6 @@ if [[ -d ~/.homesick/repos ]]; then
     alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
   fi
 fi
-
 
 # include languages settings (for miner languages)
 source ~/.bashrc_languages.sh

@@ -8,3 +8,4 @@ VSCode.meta
 # .idea/
 __pycache__/
 .pyc
+*completer.hist
