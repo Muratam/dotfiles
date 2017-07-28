@@ -2,7 +2,36 @@
 export-path ~/codes/dlang/workspace-d/bin
 
 # nim
-[[ -x "$(command -v nim)" ]] && alias nimc="nim c -r -d:release --hints:off"
+if [[ -x "$(command -v nim)" ]]; then
+  nimcompile(){ nim c -d:release --hints:off --verbosity:0 $@ ; } # for compile
+  alias nimr="nimcompile -r" # run
+  alias nimr++="nimcompile -r -d:ssl" # all in one
+fi
+
+# for yukicoder :: DOWNLOAD No.$(basename $(pwd)) && TEST a.out
+yukioj(){
+  if [[ ! -d test ]]; then
+    if [[ "$1" == "" ]]; then # no problem number
+      oj dl "https://yukicoder.me/problems/no/$(basename $(pwd))"
+    else
+      oj dl "https://yukicoder.me/problems/no/$1"
+    fi
+  fi
+  oj test
+}
+# /**/5 , *.nim => test yukicoder
+nimoj(){
+  if [[ "$1" == "" ]]; then # no filename
+    nimcompile -o:a.out *.nim
+  elif [[ "$1" == "clean" ]]; then
+    rm -rf test a.out nimcache
+    return 0
+  else
+    nimcompile -o:a.out $@
+  fi
+  echo "[[ a.out ]]"
+  yukioj
+}
 
 # nvm
 if [[ -d "${HOME}/.nvm" ]]; then
