@@ -27,6 +27,7 @@ nimoj(){
       fi
     fi
     oj test
+    rm a.out
   }
   if [[ "$1" == "" ]]; then # no filename
     nimcompile -o:a.out *.nim
