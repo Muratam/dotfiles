@@ -1,8 +1,11 @@
-import sequtils,strutils,strscans,algorithm,math,future,sets,queues,tables
+import sequtils,strutils,strscans,algorithm,math,future,sets,queues,tables,macros
 template get*():string = stdin.readLine()
 template times*(n:int,body:untyped): untyped = (for _ in 0..<n: body)
 template `max=`*(x,y:typed):void = x = max(x,y)
 template `min=`*(x,y:typed):void = x = min(x,y)
+macro unpack(rhs: seq,cnt: static[int]): auto =
+  let t = genSym(); result = quote do:(let `t` = `rhs`;())
+  for i in 0..<cnt: result[0][1].add(quote do:`t`[`i`])
 
 # future: dump / lc[(x,y,z) | (x <- 1..n, y <- x..n, z <- y..n, x*x + y*y == z*z),tuple[a,b,c: int]]
 ### template assignOperators():untyped =
