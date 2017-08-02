@@ -47,7 +47,7 @@ ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title 
 ################################
 export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
-export EDITOR=vi
+# export EDITOR=vi # c-a c-e が効かなくなる
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
 # node modules without sudo
