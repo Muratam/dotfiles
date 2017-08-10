@@ -3,6 +3,7 @@ import requests
 import os
 import shutil
 import re
+from pprint import pprint
 from urllib.parse import urljoin
 
 
@@ -11,6 +12,8 @@ class DL72:
     def __init__(self, url):
         self.url = url
         self.got = requests.get(url)
+        if self.got.encoding.startswith("ISO"):
+            self.got.encoding = self.got.apparent_encoding
         self.html = self.got.text
         self.soup = BeautifulSoup(self.html, "html5lib")
 
@@ -35,19 +38,35 @@ class DL72:
             with open(local_path, "w") as f:
                 f.write(requests.get(url).text)
 
-    def get_links(url, href_pattern=r'.*', text_pattern=r'.*'):
-        soup = DL72(url).soup
-        founds = soup.find_all(
-            'a',
-            href=re.compile(href_pattern),
-            text=re.compile(text_pattern))
+    def get_links(self, href_pattern=r'.*', text_pattern=r'.*'):
+        founds = self.soup.find_all('a', text=re.compile(text_pattern))
         res = []
         for found in founds:
+            href = urljoin(self.url, found.get("href"))
+            if not re.match(href_pattern, href):
+                continue
             res.append({
                 "text": found.text,
-                "href": urljoin(url, found.get("href"))
-            })
+                "href": href})
         return res
+
+    def scan_table(self, verpose=False, ignore_th=False):
+        tables = []
+        for i_table in self.soup.select("table"):
+            table = []
+            for i_tr in i_table.select("tr"):
+                tr = []
+                for i_td in i_tr.select("td" if ignore_th else "th,td"):
+                    if verpose:
+                        td = {"class": i_td.get("class"), "text": i_td.text}
+                    else:
+                        td = i_td.text
+                    tr.append(td)
+                if tr:
+                    table.append(tr)
+            if table:
+                tables.append(table)
+        return tables
 
 
 if __name__ == "__main__":
