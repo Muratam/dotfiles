@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import shutil
+import re
+from urllib.parse import urljoin
 
 
 class DL72:
@@ -22,6 +24,7 @@ class DL72:
         return dirname + str(local_prefix) + os.path.basename(url)
 
     def download(url, dirname="", local_prefix="", binary=True, force_name=""):
+        "download (binary)file to directory"
         local_path = DL72._make_local_path(url, dirname, local_prefix)
         if force_name:
             local_path = force_name
@@ -31,6 +34,20 @@ class DL72:
         else:
             with open(local_path, "w") as f:
                 f.write(requests.get(url).text)
+
+    def get_links(url, href_pattern=r'.*', text_pattern=r'.*'):
+        soup = DL72(url).soup
+        founds = soup.find_all(
+            'a',
+            href=re.compile(href_pattern),
+            text=re.compile(text_pattern))
+        res = []
+        for found in founds:
+            res.append({
+                "text": found.text,
+                "href": urljoin(url, found.get("href"))
+            })
+        return res
 
 
 if __name__ == "__main__":

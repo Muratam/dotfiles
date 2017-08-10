@@ -41,3 +41,5 @@ proc transpose*[T](mat:seq[seq[T]]):seq[seq[T]] =
   result = newSeqWith(mat[0].len,newSeq[T](mat.len))
   for x,xs in mat: (for y,ys in xs:result[y][x] = mat[x][y])
 
+# implicit type change
+# converter toInt(str:string):int = str.parseInt()
