@@ -16,8 +16,6 @@ template `-=`*(x,y:typed):void = x = x - y
 template `*=`*(x,y:typed):void = x = x * y
 template `/=`*(x,y:typed):void = x = x / y
 template `^=`*(x,y:typed):void = x = x xor y
-template `&=`*(x,y:typed):void = x = x and y
-template `|=`*(x,y:typed):void = x = x or y
 template `>>=`*(x,y:typed):void = x = x shr y
 template `<<=`*(x,y:typed):void = x = x shl y
 template `gcd=`*(x,y:typed):void = x = gcd(x,y)
