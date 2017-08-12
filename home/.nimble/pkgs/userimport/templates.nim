@@ -1,4 +1,5 @@
-import sequtils,strutils,strscans,algorithm,math,future,sets,queues,tables,macros
+import sequtils,strutils,strscans,algorithm,math,future,macros
+#import sets,queues,tables,nre,pegs
 macro unpack*(rhs: seq,cnt: static[int]): auto =
   let t = genSym(); result = quote do:(let `t` = `rhs`;())
   for i in 0..<cnt: result[0][1].add(quote do:`t`[`i`])
