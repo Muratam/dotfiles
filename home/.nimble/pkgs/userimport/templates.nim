@@ -11,15 +11,17 @@ template `min=`*(x,y:typed):void = x = min(x,y)
 ### template assignOperators():untyped =
 template `%=`*(x,y:typed):void = x = x mod y
 template `//=`*(x,y:typed):void = x = x div y
-template `+=`*(x,y:typed):void = x = x + y
-template `-=`*(x,y:typed):void = x = x - y
-template `*=`*(x,y:typed):void = x = x * y
-template `/=`*(x,y:typed):void = x = x / y
-template `^=`*(x,y:typed):void = x = x xor y
-template `>>=`*(x,y:typed):void = x = x shr y
-template `<<=`*(x,y:typed):void = x = x shl y
 template `gcd=`*(x,y:typed):void = x = gcd(x,y)
 template `lcm=`*(x,y:typed):void = x = lcm(x,y)
+# set(+union(or) | *intersect(and) )
+proc `+=`[T](x:var set[T],y:T):void = x.incl(y)
+proc `-=`[T](x:var set[T],y:T):void = x.excl(y)
+proc `+=`[T](x:var set[T],y:set[T]):void = x = x.union(y)
+proc `*=`[T](x:var set[T],y:set[T]):void = x = x.intersection(y)
+proc `-=`[T](x:var set[T],y:set[T]):void = x = x.difference(y)
+converter toInt8(x:int) : int8 = x.toU8()
+
+
 
 ### template iterations():untyped =
 template rep*(i:untyped,n:int,body:untyped):untyped =
@@ -33,11 +35,7 @@ template eachIt*[T](arr:var seq[T],body:untyped):untyped =
 template eachIt*[T](arr:var seq[T],i,body:untyped):untyped =
   for i in 0..<arr.len:(var it{.inject.}=arr[i]; body; defer:arr[i]=it)
 
-
 # matrix library
 proc transpose*[T](mat:seq[seq[T]]):seq[seq[T]] =
   result = newSeqWith(mat[0].len,newSeq[T](mat.len))
   for x,xs in mat: (for y,ys in xs:result[y][x] = mat[x][y])
-
-# implicit type change
-# converter toInt(str:string):int = str.parseInt()
