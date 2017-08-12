@@ -1,3 +1,4 @@
+####################### BINARY HEAP ############################
 type
   BinaryHeap*[T] = object
     nodes: seq[T]
@@ -52,3 +53,4 @@ proc popimpl[T](h:var BinaryHeap[T]):T =
   h.nodes[0] = h.nodes[^1]
   h.nodes.setLen(h.nodes.len() - 1)
   h.shiftdown()
+####################### BINARY HEAP ############################
