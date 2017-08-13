@@ -15,36 +15,24 @@ if [[ -x "$(command -v nim)" ]]; then
   #alias nimr="nimcompile -r -d:ssl" # all in one
 fi
 
-# /**/5 , *.nim => test yukicoder
 nimoj(){
-  yukioj(){
-    # for yukicoder :: DOWNLOAD No.$(basename $(pwd)) && TEST a.out
-    if [[ ! -d test ]]; then
-      if [[ "$1" == "" ]]; then # no problem number
-        oj dl "https://yukicoder.me/problems/no/$(basename $(pwd))"
-      else
-        oj dl "https://yukicoder.me/problems/no/$1"
-      fi
-    fi
-    oj test
-    rm a.out
-  }
-  if [[ "$1" == "" ]]; then # no filename
-    nimcompile -o:a.out *.nim
-    [[ $? != 0 ]] && return $?
-  elif [[ "$1" == "clean" ]]; then
-    rm -rf test a.out nimcache
-    return 0
-  elif [[ "$1" == "copy" ]]; then
-    cat *.nim | pbcopy
-    return 0
-  else
-    nimcompile -o:a.out $@
-    [[ $? != 0 ]] && return $?
+  if [[ "$1" == "" ]]; then
+    echo "no nim file"
+    return -1
   fi
-  echo "[[ a.out ]]"
-  yukioj
+  filename=$1
+  file_id="${filename%.*}"
+  file_id="${file_id:1}"
+  nimcompile -o:a.out $filename
+  [[ $? != 0 ]] && return $?
+  [[ ! -f test/$file_id  ]] && rm -r test
+  [[ ! -d test ]] && oj dl "https://yukicoder.me/problems/no/$file_id"
+  oj test
+  touch test/$file_id
+  rm a.out
 }
+
+
 
 # nvm
 if [[ -d "${HOME}/.nvm" ]]; then
