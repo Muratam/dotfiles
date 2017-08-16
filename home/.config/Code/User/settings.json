@@ -40,9 +40,9 @@
     "background.useFront": false,
     "background.useDefault": false,
     "background.customImages": [
-        "/Users/murata/icloud/pics/background/chama.jpg",
-        "/Users/murata/icloud/pics/background/chama.jpg",
-        "/Users/murata/icloud/pics/background/chama.jpg"
+        "/sers/murata/icloud/pics/background/chama.jpg",
+        "/sers/murata/icloud/pics/background/chama.jpg",
+        "/sers/murata/icloud/pics/background/chama.jpg"
     ],
     "todohighlight.keywords": [
         "WARN:",

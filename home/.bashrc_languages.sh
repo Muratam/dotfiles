@@ -23,7 +23,7 @@ nimoj(){
   filename=$1
   file_id="${filename%.*}"
   file_id="${file_id:1}"
-  nimcompile -o:a.out $filename
+  nimcompile -o:a.out --overflowChecks:on $filename
   [[ $? != 0 ]] && return $?
   [[ ! -f test/$file_id  ]] && rm -r test
   [[ ! -d test ]] && oj dl "https://yukicoder.me/problems/no/$file_id"
