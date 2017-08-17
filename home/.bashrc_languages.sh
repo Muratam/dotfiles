@@ -8,7 +8,7 @@ if [[ -x "$(command -v nim)" ]]; then
   nimr(){
     exename=`echo $1 | sed 's/\.[^\.]*$//'`
     [[ -f "nimcache/$exename" ]] && mv nimcache/$exename ./
-    nimcompile -r -d:ssl $1
+    nimcompile -r -d:ssl $@
     [[ -f $exename ]] && [[ -d "nimcache" ]] && mv $exename nimcache
   }
   export-path ~/.nimble/bin/
