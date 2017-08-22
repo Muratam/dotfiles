@@ -1,10 +1,5 @@
-###################
-### SET ALIASES ###
-###################
 if [[ "$(uname)" == 'Darwin' ]]; then
   alias ls='ls -G -F'
-  alias hl-chrome='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --headless --disable-gpu'
-  # --print-to-pdf,--dump-dom,--screenshot
 else
   alias ls='ls --color=auto -F'
 fi
@@ -42,33 +37,10 @@ lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
 ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
 [[ -x "$(command -v vtop)" ]] && alias vtop="vtop --theme seti"
-################################
-### SET ENVIRONMENT VARIABLE ###
-################################
 export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
-# export EDITOR=vi # c-a c-e が効かなくなる
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
-# node modules without sudo
-export-path ~/node_modules/.bin
-# pip modules without sudo
-export-path ~/.local/bin
-# /usr/local/bin を優先
-export-path /usr/local/bin
-# local installs
-export-path ~/.usr/bin
 
 # homeshick
-if [[ -d ~/.homesick/repos ]]; then
-  export PYTHONPATH=${PYTHONPATH}:~/.homesick/repos/dotfiles/module/python3
-  export-path ~/.homesick/repos/dotfiles/bin
-  if [[ -d ~/.homesick/repos/homeshick ]]; then
-    alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
-  fi
-fi
-
-# include languages settings (for miner languages)
-source ~/.bashrc_languages.sh
-# if zsh exists, force bash -> zsh
-if [[ $0 = "-bash" &&  -x "$(command -v zsh)" ]]; then zsh ; exit; fi
+[[ -d ~/.homesick/repos ]] && [[ -d ~/.homesick/repos/homeshick ]] && alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"

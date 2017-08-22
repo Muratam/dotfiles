@@ -1,7 +1,0 @@
-{
-  "CtrlW":"Quit",
-  "CtrlO":"VSplit,OpenFile",
-  "CtrlSpace":"NextSplit",
-  "CtrlQ":"Unsplit,Quit",
-  "CtrlBackslash":"comment.comment"
-}
