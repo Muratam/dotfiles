@@ -44,3 +44,7 @@ export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
 
 # homeshick
 [[ -d ~/.homesick/repos ]] && [[ -d ~/.homesick/repos/homeshick ]] && alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
+
+# if zsh exists, force bash -> zsh
+[[ $0 = "-bash" &&  -x "$(command -v zsh)" ]] && zsh
+
