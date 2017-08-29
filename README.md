@@ -4,6 +4,10 @@ managed under homeshick
 # only to do (after installed git)
 ```
 $ curl https://raw.githubusercontent.com/Muratam/dotfiles/master/init.sh | bash
+
+
+# if only minimal dotfiles
+$ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 ```
 
 or (shortly)
