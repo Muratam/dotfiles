@@ -25,29 +25,33 @@ alias tree='tree -CF'
 alias htree='tree -hF'
 alias pe='perl -pe'
 alias xargs='xargs -I{} bash -c'
-alias ca='highlight -O xterm256 -s rdark --force'
 alias les="/usr/share/vim/**/less.sh"
 alias t='tmux'
 alias ta='tmux a'
 alias crontab='crontab -i'
 alias tac='tail -r'
-
-if [[ -x "$(command -v rlwrap)" ]] ; then
-  alias rl='rlwrap -pYellow -ic'
-  alias sftp="rl sftp";
-fi
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
-ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
-[[ -x "$(command -v vtop)" ]] && alias vtop="vtop --theme seti"
+
+# benri commands
+[[ `command -v highlight` ]] && alias ca='highlight -O xterm256 -s rdark --force'
+[[ `command -v ipython3` ]] && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
+[[ `command -v vtop` ]] && alias vtop="vtop --theme seti"
+[[ `command -v thefuck` ]] && eval "$(thefuck --alias f)"
+if [[ `command -v rlwrap` ]] ; then
+  alias rl='rlwrap -pYellow -ic'
+  alias sftp="rl sftp";
+fi
+
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
 export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
 # export EDITOR=vi # c-a c-e が効かなくなる
+unset MAILCHECK
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
 # node modules without sudo

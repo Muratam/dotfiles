@@ -2,7 +2,7 @@
 export-path ~/codes/dlang/workspace-d/bin
 
 # nim
-if [[ -x "$(command -v nim)" ]]; then
+if [[ `command -v nim` ]]; then
   nimcompile(){ nim c -d:release --hints:off --verbosity:0 $@ ; } # for compile
   alias nimr-pure="nimcompile -r" # pure
   nimr(){
@@ -12,25 +12,25 @@ if [[ -x "$(command -v nim)" ]]; then
     [[ -f $exename ]] && [[ -d "nimcache" ]] && mv $exename nimcache
   }
   export-path ~/.nimble/bin/
-  #alias nimr="nimcompile -r -d:ssl" # all in one
+  # oj
+  nimoj(){
+    if [[ "$1" == "" ]]; then
+      echo "no nim file"
+      return -1
+    fi
+    filename=$1
+    file_id="${filename%.*}"
+    file_id="${file_id:1}"
+    nimcompile -o:a.out --overflowChecks:on $filename
+    [[ $? != 0 ]] && return $?
+    [[ ! -f test/$file_id  ]] && rm -r test
+    [[ ! -d test ]] && oj dl "https://yukicoder.me/problems/no/$file_id"
+    oj test
+    touch test/$file_id
+    rm a.out
+  }
 fi
 
-nimoj(){
-  if [[ "$1" == "" ]]; then
-    echo "no nim file"
-    return -1
-  fi
-  filename=$1
-  file_id="${filename%.*}"
-  file_id="${file_id:1}"
-  nimcompile -o:a.out --overflowChecks:on $filename
-  [[ $? != 0 ]] && return $?
-  [[ ! -f test/$file_id  ]] && rm -r test
-  [[ ! -d test ]] && oj dl "https://yukicoder.me/problems/no/$file_id"
-  oj test
-  touch test/$file_id
-  rm a.out
-}
 
 
 
@@ -50,13 +50,4 @@ if [[ -d ~/.cargo ]] && [[ -d ~/.rustup ]] ; then
   if [[ "$(uname)" == 'Darwin' ]]; then
     export RUST_SRC_PATH=~/.multirust/toolchains/beta-x86_64-apple-darwin/lib/rustlib/src/rust/src
   fi
-fi
-
-
-
-if [[ "$(hostname)" == "ringo" ]]; then
-  #python naoqi
-  export PYTHONPATH=${PYTHONPATH}:~/python/pepper/naoqi
-  export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:~/python/pepper/naoqi
-  unset MAILCHECK
 fi
