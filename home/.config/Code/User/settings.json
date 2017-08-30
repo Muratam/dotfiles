@@ -37,20 +37,18 @@
         "**/*.pyc": true,
         "**/__pycache__/": true
     },
+    "background.useFront": false,
     "background.useDefault": false,
     "background.customImages": [
-        "/Users/murata/icloud/pics/background/chama.jpg",
-        "/Users/murata/icloud/pics/background/chama.jpg",
-        "/Users/murata/icloud/pics/background/chama.jpg"
+        "/sers/murata/icloud/pics/background/chama.jpg",
+        "/sers/murata/icloud/pics/background/chama.jpg",
+        "/sers/murata/icloud/pics/background/chama.jpg"
     ],
-    "TodoParser": {
-        "markers": [
-            "WARN:",
-            "NOTE:"
-        ]
-    },
-    //ワンライン実行用
-    "runner.languageMap": {
+    "todohighlight.keywords": [
+        "WARN:",
+        "NOTE:"
+    ],
+    "code-runner.executorMap": {
         "cpp": "vscode_cpp_run(){ clang++ -std=c++14 -o out $1; if [ -f test.txt ]; then cat test.txt | ./out ;else ./out ; fi ;rm ./out; }; vscode_cpp_run ",
         "python": "python3 ",
         "d": "dub test -q ;echo "
@@ -61,10 +59,7 @@
         "-std=c++14"
     ],
     "clang-format.style": "Google",
-    "d.stdlibPath": "/usr/local/Cellar/dmd/2.071.2/include/dlang/dmd",
-    "dfmt.braceStyle": "stroustrup",
-    //"d.dfmt.braceStyle": "stroustrup"
-    "rust.formatOnSave": true,
+    // rust////////////////////////////s
     "rust.rls": {
         "executable": "rustup",
         "args": [
@@ -72,8 +67,15 @@
             "nightly",
             "rls"
         ],
-        "revealOutputChannelOn": "info"
+        "revealOutputChannelOn": "info",
+        "useRustfmt": true
     },
-    "workbench.welcome.enabled": false,
-    "background.useFront": false
+    "rust.rustup": {
+        "toolchain": "nightly-x86_64-apple-darwin"
+    },
+    "rust.mode": "rls",
+    "[nim]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
 }

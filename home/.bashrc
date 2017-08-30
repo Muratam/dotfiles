@@ -8,51 +8,58 @@ if [[ "$(uname)" == 'Darwin' ]]; then
 else
   alias ls='ls --color=auto -F'
 fi
+# override aliases
+alias cp='cp -i'
+alias crontab='crontab -i'
+alias du='du -h'
+alias od='od -c'
+alias su='su -l'
+alias grep='grep --color=auto'
+alias xargs='xargs -I{} --no-run-if-empty bash -c'
+
+# aliases
 alias la='ls -a'
 alias ll='ls -lh'
 alias lla='ls -lah'
 alias l='ls'
-alias cp='cp -i'
-alias du='du -h'
-alias ds='du -hs *'
-alias grep='grep --color=auto'
-alias od='od -c'
 alias g='git'
+alias t='tmux'
+alias ta='tmux a'
+alias ds='du -hs *'
 alias py='python3 -q'
 alias pip="pip3"
-alias tar="tar xf"
+alias untar="tar xf"
 alias tree='tree -CF'
 alias htree='tree -hF'
 alias pe='perl -pe'
-alias xargs='xargs -I{} bash -c'
-alias ca='highlight -O xterm256 -s rdark --force'
 alias les="/usr/share/vim/**/less.sh"
-alias t='tmux'
-alias ta='tmux a'
-alias crontab='crontab -i'
-
-if [[ -x "$(command -v rlwrap)" ]] ; then
-  alias rl='rlwrap -pYellow -ic'
-  alias sftp="rl sftp";
-fi
+alias tac='tail -r'
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
-ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
+mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
+
+# benri commands
+[[ `command -v highlight` ]] && alias ca='highlight --infer-lang --failsafe -O xterm256 -s rdark --force'
+[[ `command -v ipython3` ]] && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
+[[ `command -v vtop` ]] && alias vtop="vtop --theme seti"
+[[ `command -v thefuck` ]] && eval "$(thefuck --alias f)"
+[[ `command -v nyancat` ]] && alias n="nyancat"
+if [[ `command -v rlwrap` ]] ; then
+  alias rl='rlwrap -pYellow -ic'
+  alias sftp="rl sftp";
+fi
+
 
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
-# export PS1="\[\e[32m\][\w]\n\[\e[36m\]\W \$ \[\e[0m\]"
-export LESS='-imMRSF' #'-iMRS -W -z-4 -x4 -F'
+export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
-export EDITOR=vi
+# export EDITOR=vi # c-a c-e が効かなくなる
+unset MAILCHECK
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
-# rust cargo
-export-path ~/.cargo/bin
-# workspace-d
-export-path ~/codes/dlang/workspace-d/bin
 # node modules without sudo
 export-path ~/node_modules/.bin
 # pip modules without sudo
@@ -65,30 +72,13 @@ export-path ~/.usr/bin
 # homeshick
 if [[ -d ~/.homesick/repos ]]; then
   export PYTHONPATH=${PYTHONPATH}:~/.homesick/repos/dotfiles/module/python3
-  export PATH=${PATH}:~/.homesick/repos/dotfiles/bin
+  export-path ~/.homesick/repos/dotfiles/bin
   if [[ -d ~/.homesick/repos/homeshick ]]; then
     alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
   fi
 fi
 
-# nvm
-if [[ -d "${HOME}/.nvm" ]]; then
-  export NVM_DIR="${HOME}/.nvm"
-  [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh" > /dev/null
-  nvm use stable > /dev/null
-fi
-
-#########################
-### FOR EACH COMPUTER ###
-#########################
-
-if [[ "$(hostname)" == "ringo" ]]; then
-  export PYTHONPATH=${PYTHONPATH}:~/python/pepper/naoqi
-  export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:~/python/pepper/naoqi
-  unset MAILCHECK
-elif [[ "$(uname)" == 'Darwin' ]]; then
-  export RUST_SRC_PATH=~/.multirust/toolchains/beta-x86_64-apple-darwin/lib/rustlib/src/rust/src
-fi
-
+# include languages settings (for miner languages)
+source ~/.bashrc_languages.sh
 # if zsh exists, force bash -> zsh
-if [[ $0 = "-bash" &&  -x "$(command -v zsh)" ]]; then zsh ; exit; fi
+if [[ $0 = "-bash" &&  -x "$(command -v zsh)" ]]; then exec zsh -l; fi
