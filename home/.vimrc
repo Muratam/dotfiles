@@ -22,7 +22,6 @@ set showmatch
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 
-
 "--------tab--------
 "tabをspaceにするなど
 set expandtab
@@ -77,10 +76,8 @@ nnoremap <C-l> $
 nnoremap <C-h> ^
 nnoremap q <Nop>
 nnoremap ; :
-" {} 折りたたみ
-" zo 折りたたみを展開
-nnoremap zp $zfa{
-
+nnoremap <Space> za
+" :a! で ペーストするとインデントなし
 
 "augroup local
 "  au!
@@ -155,6 +152,24 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_sign_column_always = 1
 
+
+" folding
+function! MyFoldText()
+  let line = getline(v:foldstart)
+  let nucolwidth = &fdc + &number * &numberwidth
+  let windowwidth = winwidth(0) - nucolwidth - 3
+  let foldedlinecount = v:foldend - v:foldstart
+  let onetab = strpart('          ', 0, &tabstop)
+  let line = substitute(line, '\t', onetab, 'g')
+  let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+  let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+  return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction
+set foldmethod=indent
+set foldtext=MyFoldText()
+hi Folded gui=bold term=standout ctermbg=LightGrey ctermfg=DarkBlue guibg=Grey30 guifg=Grey80
+hi FoldColumn gui=bold term=standout ctermbg=LightGrey ctermfg=DarkBlue guibg=Grey guifg=DarkBlue
+set foldlevel=20
 
 " keymaps
 let g:keymaps =  [
