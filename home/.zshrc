@@ -7,6 +7,7 @@ setopt auto_cd
 setopt auto_param_slash
 setopt auto_menu
 setopt complete_in_word
+setopt complete_aliases
 setopt mark_dirs
 setopt list_packed
 
