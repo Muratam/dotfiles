@@ -14,7 +14,7 @@ if [[ -x "$(command -v nim)" ]]; then
   export-path ~/.nimble/bin/
   # oj
   nimoj(){
-    if [[ ! $1 ]]; then
+    if [[ $1 != "" ]]; then
       echo "no nim file"
       return -1
     fi
