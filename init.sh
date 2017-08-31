@@ -26,3 +26,6 @@ if [[ ! -f $plug_file ]];then
 fi
 
 ${HOME}/.homesick/repos/homeshick/bin/homeshick link dotfiles_minimal
+
+# install recommended command
+sh ${HOME}/.homesick/repos/dotfiles_minimal/recommend.sh
