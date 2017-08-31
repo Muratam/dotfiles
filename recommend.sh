@@ -42,7 +42,7 @@ green installed
 
 # install all convinient commands
 installlist ${convinients[@]}
-echo "ok ? [yn]" && read input_v && [[ $input_v == "n" ]] && exit 1
+#echo "ok ? [yn]" && read input_v && [[ $input_v == "n" ]] && exit 1
 for cmd in ${convinients[@]} ; do
   [[ "$(command -v $cmd)" == "" ]] && yellow $cmd && $manager $cmd
 done
