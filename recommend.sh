@@ -1,7 +1,7 @@
 #! /bin/bash
 # iikanji command lists
 declare recommendeds=( git tmux zsh vim tig tree wget unzip less )
-declare convinients=( jq rlwrap highlight thefuck )
+declare convinients=( jq rlwrap highlight thefuck sshfs )
 declare brewtaps=( caskroom/cask caskroom/fonts homebrew/core sanemat/font )
 declare brewinstalls=( # huge commands for mac
   moreutils pandoc imagemagick docker
