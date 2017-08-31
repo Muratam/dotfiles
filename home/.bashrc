@@ -1,5 +1,5 @@
 # if zsh exists, force bash -> zsh, without chsh
-[[ $SHELL = "/bin/bash" ]] && [[ -x "$(command -v zsh)" ]] && exec zsh -l
+[[ $0 = "bash" ]] && [[ $SHLVL = 2 ]] && [[ -x "$(command -v zsh)" ]] &&  exec zsh -l
 
 ###################
 ### SET ALIASES ###
