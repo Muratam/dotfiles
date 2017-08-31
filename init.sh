@@ -28,4 +28,4 @@ if [[ ! -f $plug_file ]];then
 fi
 
 # install recommended command
-sh ${HOME}/.homesick/repos/dotfiles/recommend.sh
+bash ${HOME}/.homesick/repos/dotfiles/recommend.sh
