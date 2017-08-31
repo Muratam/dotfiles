@@ -1,3 +1,6 @@
+# if zsh exists, force bash -> zsh, without chsh
+[[ $0 = "/bin/bash" ]] && execable zsh && exec zsh -l
+
 ###################
 ### SET ALIASES ###
 ###################
@@ -81,5 +84,3 @@ fi
 
 # include languages settings (for miner languages)
 source ~/.bashrc_languages.sh
-# if zsh exists, force bash -> zsh
-if [[ $0 = "-bash" ]] && execable zsh ; then exec zsh -l; fi
