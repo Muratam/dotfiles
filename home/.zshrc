@@ -70,7 +70,7 @@ zstyle ':vcs_info:*' formats '%F{blue}%b%f'
 zstyle ':vcs_info:*' actionformats '%F{blue}%b%f(%F{red}%a%f)'
 add-zsh-hook precmd vcs_info
 
-function _vcs_git_indicator () {
+_vcs_git_indicator() {
   typeset -A git_info
   local git_indicator git_status
   git_status=("${(f)$(git status --porcelain --branch 2> /dev/null)}")
