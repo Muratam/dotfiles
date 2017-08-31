@@ -2,11 +2,11 @@
 export-path ~/codes/dlang/workspace-d/bin
 
 # nim
-if [[ `command -v nim` ]]; then
+if [[ -x "$(command -v nim)" ]]; then
   nimcompile(){ nim c -d:release --hints:off --verbosity:0 $@ ; } # for compile
   alias nimr-pure="nimcompile -r" # pure
   nimr(){
-    exename=`echo $1 | sed 's/\.[^\.]*$//'`
+    exename="$(echo $1 | sed 's/\.[^\.]*$//')"
     [[ -f "nimcache/$exename" ]] && mv nimcache/$exename ./
     nimcompile -r -d:ssl $@
     [[ -f $exename ]] && [[ -d "nimcache" ]] && mv $exename nimcache
@@ -14,7 +14,7 @@ if [[ `command -v nim` ]]; then
   export-path ~/.nimble/bin/
   # oj
   nimoj(){
-    if [[ "$1" == "" ]]; then
+    if [[ ! $1 ]]; then
       echo "no nim file"
       return -1
     fi
@@ -51,3 +51,4 @@ if [[ -d ~/.cargo ]] && [[ -d ~/.rustup ]] ; then
     export RUST_SRC_PATH=~/.multirust/toolchains/beta-x86_64-apple-darwin/lib/rustlib/src/rust/src
   fi
 fi
+
