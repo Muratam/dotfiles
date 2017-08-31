@@ -1,11 +1,22 @@
 #! /bin/bash
+# iikanji command lists
+declare recommendeds=( git tmux zsh vim tig tree wget unzip less )
+declare convinients=( jq rlwrap highlight thefuck )
+declare brewtaps=( caskroom/cask caskroom/fonts homebrew/core sanemat/font )
+declare brewinstalls=( # huge commands for mac
+  moreutils pandoc imagemagick docker
+  cmake nim node # eigen boost
+)
+declare brewcasks=( # cask commands
+  firefox hammerspoon thunderbird google-japanese-ime visual-studio-code
+  kindle osxfuse gyazo google-chrome font-noto-sans-cjk-jp skype
+)
+
+
 execable(){ [[ -x "$(command -v $1)" ]] || [[ "$(command -v $1)" != "" ]] ; }
 green(){ echo "`tput setaf 2`$@`tput sgr0`"; }
 yellow(){ echo "`tput setaf 3`$@`tput sgr0`"; }
 installlist(){ echo "install `tput setaf 3`$@ `tput sgr0`" ; }
-# iikanji commands
-declare recommendeds=( git tmux zsh vim tig tree wget unzip less )
-declare convinients=( jq rlwrap highlight thefuck )
 
 # if mac,install brew
 if [[ "$(uname)" == 'Darwin' ]] && [[ "$(command -v brew)" == "" ]] ; then
@@ -14,8 +25,10 @@ fi
 
 # get package manager
 if execable brew; then manager="brew install"
-elif execable apt; then manager="sudo apt install"
-elif execable yum; then manager="sudo yum install"
+elif execable apt; then manager="sudo apt install -y"
+elif execable yum; then
+  manager="sudo yum install -y";
+  sudo yum install -y epel-release
 elif execable pacman; then manager="sudo pacman install"
 else echo "no package manager"; exit 1
 fi
@@ -37,17 +50,6 @@ green installed
 
 
 #### brew ####################################################
-declare brewtaps=(
-  caskroom/cask caskroom/fonts homebrew/core sanemat/font
-)
-declare brewinstalls=( # huge commands for mac
-  moreutils pandoc imagemagick docker
-  cmake nim node # eigen boost
-)
-declare brewcasks=( # cask commands
-  firefox hammerspoon thunderbird google-japanese-ime visual-studio-code
-  kindle osxfuse gyazo google-chrome font-noto-sans-cjk-jp skype
-)
 
 # if not brew finish here
 if [[ "$(command -v brew)" == "" ]]; then
