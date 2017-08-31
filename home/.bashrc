@@ -1,5 +1,7 @@
 # if zsh exists, force bash -> zsh, without chsh
 ([[ $0 = "bash" ]] || [[ $0 = "-bash" ]] ) && [[ $SHLVL -le 2 ]] && [[ -x "$(command -v zsh)" ]] &&  exec zsh -l
+# use xterm-256
+[[ $TERM = "xterm" ]] && export TERM='xterm-256color'
 
 ###################
 ### SET ALIASES ###
@@ -44,14 +46,10 @@ mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
 execable(){ [[ -x "$(command -v $1)" ]] || [[ "$(command -v $1)" != "" ]] ; }
 execable highlight && alias ca='highlight --infer-lang --failsafe -O xterm256 -s rdark --force'
 execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
-execable vtop && alias vtop="vtop --theme seti"
-execable thefuck && eval "$(thefuck --alias f)"
-execable nyancat && alias n="nyancat"
 if execable rlwrap ; then
   alias rl='rlwrap -pYellow -ic'
   alias sftp="rl sftp";
 fi
-
 
 ################################
 ### SET ENVIRONMENT VARIABLE ###
