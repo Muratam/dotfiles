@@ -32,6 +32,3 @@ ${HOME}/.homesick/repos/homeshick/bin/homeshick link dotfiles_minimal
 
 # install recommended command
 bash ${HOME}/.homesick/repos/dotfiles_minimal/recommend.sh
-
-# login as zsh
-exec zsh -l
