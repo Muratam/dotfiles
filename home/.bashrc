@@ -1,5 +1,8 @@
 # if zsh exists, force bash -> zsh, without chsh
 ([[ $0 = "bash" ]] || [[ $0 = "-bash" ]] ) && [[ $SHLVL -le 2 ]] && [[ -x "$(command -v zsh)" ]] &&  exec zsh -l
+# use xterm-256
+[[ $TERM = "xterm" ]] && export TERM='xterm-256color'
+
 
 ###################
 ### SET ALIASES ###
