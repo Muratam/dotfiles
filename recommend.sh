@@ -29,7 +29,8 @@ elif execable apt; then manager="sudo apt install -y"
 elif execable yum; then
   manager="sudo yum install -y";
   sudo yum install -y epel-release
-elif execable pacman; then manager="sudo pacman install"
+  sudo yum update -y vim-minimal
+elif execable pacman; then manager="sudo pacman -S --noconfirm "
 else echo "no package manager"; exit 1
 fi
 
