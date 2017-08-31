@@ -9,9 +9,10 @@ $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 # newuser="hoge"; adduser --home "/home/$newuser" $newuser && adduser $newuser sudo && su $newuser
 ```
 
-# @ centos
+# @ centos,fedora
 ```
-# yum install -y sudo git
-# visudo # wheel ALL=(ALL) NOPASSWD: ALL # comment out this
-# newuser="hoge"; adduser -d "/home/$newuser" $newuser && usermod -aG wheel $newuser && su $newuser
+# yum install -y sudo git passwd
+# newuser="hoge"; adduser -d "/home/$newuser" $newuser && passwd $newuser && usermod -aG wheel $newuser && su $newuser
 ```
+
+# redhat suse arch
