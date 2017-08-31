@@ -8,9 +8,9 @@ fi
 
 
 # homeshick and link
-#if ! which homeshick > /dev/null; then 
+#if ! which homeshick > /dev/null; then
 if [[ ! -x $(command -v homeshick) ]]; then
-  git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+  git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
   ${HOME}/.homesick/repos/homeshick/bin/homeshick clone muratam/dotfiles
 fi
 
