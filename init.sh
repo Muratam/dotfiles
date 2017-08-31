@@ -6,6 +6,9 @@ if [[ ! -x $(command -v git) ]]; then
   exit
 fi
 
+# local bashrc mv
+[[ ! -L ~/.bashrc ]] && mv ~/.bashrc ~/.bashrc.old
+
 # homeshick and link
 if [[ ! -x $(command -v homeshick) ]]; then
   git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
