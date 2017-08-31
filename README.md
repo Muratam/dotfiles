@@ -3,7 +3,7 @@
 $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 ```
 
-# @ ubuntu
+# @ ubuntu,debian
 ```
 # apt update && apt install -y sudo git curl
 # newuser="hoge"; adduser --home "/home/$newuser" $newuser && adduser $newuser sudo && su $newuser
