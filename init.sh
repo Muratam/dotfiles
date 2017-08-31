@@ -6,12 +6,9 @@ if [[ ! -x $(command -v git) ]]; then
   exit
 fi
 
-
 # homeshick and link
-#if ! which homeshick > /dev/null; then
 if [[ ! -x $(command -v homeshick) ]]; then
   git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-  #${HOME}/.homesick/repos/homeshick/bin/homeshick clone muratam/dotfiles
   git clone -b minimal https://github.com/Muratam/dotfiles.git $HOME/.homesick/repos/dotfiles_minimal
 fi
 
@@ -28,4 +25,4 @@ if [[ ! -f $plug_file ]];then
   curl -Lo $plug_file --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-${HOME}/.homesick/repos/homeshick/bin/homeshick link
+${HOME}/.homesick/repos/homeshick/bin/homeshick link dotfiles_minimal
