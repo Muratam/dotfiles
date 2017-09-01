@@ -25,14 +25,18 @@ fi
 
 # get package manager
 if execable brew; then manager="brew install"
-elif execable apt; then manager="sudo apt install -y"
 elif execable yum; then
   manager="sudo yum install -y";
   sudo yum install -y epel-release
   sudo yum update -y vim-minimal
-elif execable pacman; then manager="sudo pacman -S --noconfirm "
+elif execable apt   ; then manager="sudo apt install -y"
+elif execable pacman; then manager="sudo pacman -S --noconfirm" # ArchLinux
+elif execable zypper; then manager="sudo zypper install -y" # OpenSUSE
+elif execable pkg   ; then manager="sudo pkg install -y" # FreeBSD
 else echo "no package manager"; exit 1
 fi
+
+
 
 # install all recommended commands
 installlist ${recommendeds[@]}
