@@ -31,7 +31,7 @@ $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 
 # FreeBSD
 ```sh
-> pkg install -y sudo curl git bash zsh gnuls && exec bash -l
+> pkg install -y sudo curl git bash gnuls
 > echo "%wheel ALL=(ALL) ALL" >> /usr/local/etc/sudoers
-> newuser="hgoe"; echo "$newuser::::::::zsh:" | adduser -f /dev/stdin -G wheel && passwd $newuser
+> set newuser=hgoe; echo $newuser"::::::::bash:" | adduser -f /dev/stdin -G wheel && passwd $newuser && su $newuser
 ```
