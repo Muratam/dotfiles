@@ -9,13 +9,14 @@ installlist(){ echo "install `tput setaf 3`$@ `tput sgr0`" ; }
 
 # get package manager
 if execable brew; then manager="brew install"
-elif execable apt; then manager="sudo apt install -y"
 elif execable yum; then
   manager="sudo yum install -y";
   sudo yum install -y epel-release
   sudo yum update -y vim-minimal
+elif execable apt   ; then manager="sudo apt install -y"
 elif execable pacman; then manager="sudo pacman -S --noconfirm"
 elif execable zypper; then manager="sudo zypper install -y"
+elif execable pkg   ; then manager="sudo pkg install -y"
 else echo "no package manager"; exit 1
 fi
 
