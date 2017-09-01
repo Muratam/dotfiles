@@ -9,9 +9,10 @@ $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 > newuser="hoge"; adduser --home "/home/$newuser" $newuser && adduser $newuser sudo && su $newuser
 ```
 
-# Fedora RHEL CentOS ScientificLinux OracleLinux
+# Fedora RHEL CentOS {Scientific,Oracle,Amazon} Linux
 ```sh
 > yum install -y sudo git passwd
+> echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 > newuser="hoge"; adduser -d "/home/$newuser" $newuser && passwd $newuser && usermod -aG wheel $newuser && su $newuser
 ```
 
