@@ -15,6 +15,7 @@ elif execable yum; then
   sudo yum install -y epel-release
   sudo yum update -y vim-minimal
 elif execable pacman; then manager="sudo pacman -S --noconfirm"
+elif execable zypper; then manager="sudo zypper install -y"
 else echo "no package manager"; exit 1
 fi
 
