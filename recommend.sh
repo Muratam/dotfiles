@@ -17,6 +17,7 @@ elif execable apt   ; then manager="sudo apt install -y"
 elif execable pacman; then manager="sudo pacman -S --noconfirm" # ArchLinux
 elif execable zypper; then manager="sudo zypper install -y" # OpenSUSE
 elif execable pkg   ; then manager="sudo pkg install -y" # FreeBSD
+elif execable emerge; then manager="sudo emerge" # Gentoo
 else echo "no package manager"; exit 1
 fi
 
