@@ -34,6 +34,7 @@ alias g='git'
 alias t='tmux'
 alias ta='tmux a'
 alias ds='du -hs * 2> /dev/null'
+alias li='lsof -i'
 alias py='python3 -q'
 alias pip="pip3"
 alias untar="tar xf"
