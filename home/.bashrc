@@ -31,7 +31,7 @@ alias l='ls'
 alias g='git'
 alias t='tmux'
 alias ta='tmux a'
-alias ds='du -hs *'
+alias ds='du -hs * 2> /dev/null'
 alias py='python3 -q'
 alias pip="pip3"
 alias untar="tar xf"
@@ -39,15 +39,15 @@ alias tree='tree -CF'
 alias htree='tree -hF'
 alias pe='perl -pe'
 alias les="/usr/share/vim/**/less.sh"
-alias tac='tail -r'
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
 
 # benri commands
-execable highlight && alias ca='highlight --infer-lang --failsafe -O xterm256 -s rdark --force'
+execable highlight && alias ca='highlight -O xterm256 -s rdark --force'
 execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
+[[ "$(command -v tac)" == "" ]] && alias tac='tail -r'
 if execable rlwrap ; then
   alias rl='rlwrap -pYellow -ic'
   alias sftp="rl sftp";

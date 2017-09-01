@@ -14,9 +14,9 @@ elif execable yum; then
   sudo yum install -y epel-release
   sudo yum update -y vim-minimal
 elif execable apt   ; then manager="sudo apt install -y"
-elif execable pacman; then manager="sudo pacman -S --noconfirm"
-elif execable zypper; then manager="sudo zypper install -y"
-elif execable pkg   ; then manager="sudo pkg install -y"
+elif execable pacman; then manager="sudo pacman -S --noconfirm" # ArchLinux
+elif execable zypper; then manager="sudo zypper install -y" # OpenSUSE
+elif execable pkg   ; then manager="sudo pkg install -y" # FreeBSD
 else echo "no package manager"; exit 1
 fi
 

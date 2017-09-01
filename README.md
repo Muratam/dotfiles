@@ -3,6 +3,7 @@
 $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 ```
 
+
 # Ubuntu Debian
 ```sh
 > apt update && apt install -y sudo git curl
@@ -33,5 +34,5 @@ $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 ```sh
 > pkg install -y sudo curl git bash gnuls
 > echo "%wheel ALL=(ALL) ALL" >> /usr/local/etc/sudoers
-> set newuser=hgoe; echo $newuser"::::::::bash:" | adduser -f /dev/stdin -G wheel && passwd $newuser && su $newuser
+> set newuser="hoge"; echo $newuser"::::::::bash:" | adduser -f /dev/stdin -G wheel && passwd $newuser && su $newuser
 ```
