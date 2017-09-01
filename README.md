@@ -15,16 +15,17 @@ $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 > newuser="hoge"; adduser -d "/home/$newuser" $newuser && passwd $newuser && usermod -aG wheel $newuser && su $newuser
 ```
 
-# ArchLinux
+# ArchLinux OpenSUSE Gentoo
 ```sh
+# ArchLinux
 > pacman -Syy && pacman -S --noconfirm git sudo
-> echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
-> newuser="hoge"; useradd -m -G wheel $newuser && passwd $newuser && su $newuser
+# OpenSUSE
+> zypper install -y git sudo
+# Gentoo
+> emerge-webrsync && emerge sudo git curl
 ```
 
-# OpenSUSE
 ```sh
-> zypper install -y git sudo
 > echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 > newuser="hoge"; useradd -m -G wheel $newuser && passwd $newuser && su $newuser
 ```
@@ -35,3 +36,4 @@ $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 > echo "%wheel ALL=(ALL) ALL" >> /usr/local/etc/sudoers
 > set newuser="hoge"; echo $newuser"::::::::bash:" | adduser -f /dev/stdin -G wheel && passwd $newuser && su $newuser
 ```
+
