@@ -43,11 +43,14 @@ search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
+p(){ astr='{ print ' ;for a in $@; do astr+="\$$a, " done; astr+='"" }';awk $astr; }
 
 # benri commands
 execable highlight && alias ca='highlight -O xterm256 -s rdark --force'
 execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
+execable tldr && alias f='tldr $(fc -ln -1 | tail -n 1 | p 1)'
 [[ "$(command -v tac)" == "" ]] && alias tac='tail -r'
+
 if execable rlwrap ; then
   alias rl='rlwrap -pYellow -ic'
   alias sftp="rl sftp";
