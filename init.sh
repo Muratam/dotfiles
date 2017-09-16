@@ -7,7 +7,7 @@ if [[ ! -x $(command -v git) ]]; then
 fi
 
 # local bashrc mv
-[[ ! -L ~/.bashrc ]] && mv ~/.bashrc ~/.bashrc.old
+# [[ ! -L ~/.bashrc ]] && mv ~/.bashrc ~/.bashrc.old
 
 # homeshick and link
 if [[ ! -x $(command -v homeshick) ]]; then
