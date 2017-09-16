@@ -1,5 +1,5 @@
 # if zsh exists, force bash -> zsh, without chsh
-([[ $0 = "bash" ]] || [[ $0 = "-bash" ]] || [[ $0 = "su" ]] ) && [[ $SHLVL -le 2 ]] && [[ -x "$(command -v zsh)" ]] &&  exec zsh -l
+([[ $0 = "bash" ]] || [[ $0 = "-bash" ]] || [[ $0 = "su" ]]  || [[ $0 = "-su" ]] ) && [[ $SHLVL -le 2 ]] && [[ -x "$(command -v zsh)" ]] &&  exec zsh -l
 # use xterm-256
 [[ $TERM = "xterm" ]] && export TERM='xterm-256color'
 execable(){ [[ -x "$(command -v $1)" ]] || [[ "$(command -v $1)" != "" ]] ; }
@@ -43,7 +43,7 @@ search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
-p(){ astr='{ print ' ;for a in $@; do astr+="\$$a, " done; astr+='"" }';awk $astr; }
+#p(){ astr='{ print ' ;for a in $@; do astr+="\$$a, " done; astr+='"" }';awk $astr; }
 
 # benri commands
 execable highlight && alias ca='highlight -O xterm256 -s rdark --force'
