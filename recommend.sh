@@ -46,7 +46,7 @@ green installed
 
 # isucon :: netdata (localhost:19999)
 echo "install `tput setaf 3` netdata `tput sgr0`"
-bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)
+yes | bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)
 green installed
 
 # isucon :: alp
@@ -56,7 +56,6 @@ wget https://github.com/tkuchiki/alp/releases/download/v0.3.1/alp_linux_amd64.zi
 unzip alp_linux_amd64.zip
 sudo install ./alp /usr/local/bin
 green installed
-# ! dont forget alp nginx config !!
 
 # isucon :: pt-query-digest
 echo "install `tput setaf 3` pt-query-digest `tput sgr0`"
