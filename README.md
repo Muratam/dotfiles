@@ -1,4 +1,4 @@
-# only to do (after installed git)
+# only to do
 ```sh
 # apt install sudo
 $ sudo apt update && sudo apt install -y git curl
