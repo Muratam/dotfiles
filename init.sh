@@ -29,6 +29,7 @@ if [[ ! -f $plug_file ]];then
 fi
 
 ${HOME}/.homesick/repos/homeshick/bin/homeshick link dotfiles
+echo "source ~/.bashalias" >> ~/.bashrc
 
 # install recommended command
 bash ${HOME}/.homesick/repos/dotfiles/recommend.sh
