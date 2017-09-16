@@ -21,7 +21,6 @@ alias du='du -h'
 alias od='od -c'
 alias su='su -l'
 alias grep='grep --color=auto'
-alias xargs='xargs -I{} --no-run-if-empty bash -c'
 
 # aliases
 alias la='ls -a'
@@ -36,32 +35,21 @@ alias py='python3 -q'
 alias pip="pip3"
 alias untar="tar xf"
 alias tree='tree -CF'
-alias htree='tree -hF'
 alias pe='perl -pe'
-alias les="/usr/share/vim/**/less.sh"
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
-mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
-#p(){ astr='{ print ' ;for a in $@; do astr+="\$$a, " done; astr+='"" }';awk $astr; }
 
 # benri commands
 execable highlight && alias ca='highlight -O xterm256 -s rdark --force'
-execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
 execable tldr && alias f='tldr $(fc -ln -1 | tail -n 1 | p 1)'
 [[ "$(command -v tac)" == "" ]] && alias tac='tail -r'
-
-if execable rlwrap ; then
-  alias rl='rlwrap -pYellow -ic'
-  alias sftp="rl sftp";
-fi
 
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
 export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
-# export EDITOR=vi # c-a c-e が効かなくなる
 unset MAILCHECK
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
@@ -69,16 +57,18 @@ export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
 export-path ~/node_modules/.bin
 # pip modules without sudo
 export-path ~/.local/bin
-# /usr/local/bin を優先
+# /usr/bin や /bin よりも /usr/local/bin を優先
 export-path /usr/local/bin
 # local installs
 export-path ~/.usr/bin
 
+# for isucon
+export-path ~/bin
+[[ -f ~/env.sh ]] && source env.sh
+alias dstat="dstat -t -a"
+alias accesslog="alp --sum -r --aggregates='/keyword/.*' -f" # accsess.log
+alias slowlog="pt-query-digest --limit 10" # slow.log
+
 # homeshick
-if [[ -d ~/.homesick/repos ]]; then
-  export PYTHONPATH=${PYTHONPATH}:~/.homesick/repos/dotfiles/module/python3
-  export-path ~/.homesick/repos/dotfiles/bin
-  if [[ -d ~/.homesick/repos/homeshick ]]; then
-    alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
-  fi
-fi
+[[ -d ~/.homesick/repos/homeshick ]] && alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
+
