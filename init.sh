@@ -12,7 +12,7 @@ fi
 # homeshick and link
 if [[ ! -x $(command -v homeshick) ]]; then
   git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-  git clone -b minimal https://github.com/Muratam/dotfiles.git $HOME/.homesick/repos/dotfiles_minimal
+  git clone -b isucon https://github.com/Muratam/dotfiles.git $HOME/.homesick/repos/dotfiles
 fi
 
 # zsh
@@ -28,7 +28,7 @@ if [[ ! -f $plug_file ]];then
   curl -Lo $plug_file --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-${HOME}/.homesick/repos/homeshick/bin/homeshick link dotfiles_minimal
+${HOME}/.homesick/repos/homeshick/bin/homeshick link dotfiles
 
 # install recommended command
-bash ${HOME}/.homesick/repos/dotfiles_minimal/recommend.sh
+bash ${HOME}/.homesick/repos/dotfiles/recommend.sh
