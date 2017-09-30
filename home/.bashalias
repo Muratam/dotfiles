@@ -66,8 +66,8 @@ export-path ~/.usr/bin
 export-path ~/bin
 [[ -f ~/env.sh ]] && source ~/env.sh
 alias dstat="dstat -t -a"
-alias alp="alp --sum -r --aggregates='/keyword/.*' -f" # accsess.log
-alias pt-query-digest="pt-query-digest --limit 10" # slow.log
+alias accesslog="alp --sum -r --aggregates='/keyword/.*' -f" # accsess.log
+alias slowlog="pt-query-digest --limit 10" # slow.log
 
 # homeshick
 [[ -d ~/.homesick/repos/homeshick ]] && alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
