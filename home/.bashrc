@@ -40,11 +40,12 @@ alias pip="pip3"
 alias tree='tree -CF'
 alias pe='perl -pe'
 alias les="/usr/share/vim/**/less.sh"
+# execable rg && alias grep='rg'
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
-p(){ astr='{ print ' ;for a in $@; do astr+="\$$a, " done; astr+='"" }';awk $astr; }
+p(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
 
 # benri commands
 execable highlight && alias ca='highlight -O xterm256 -s rdark --force'
