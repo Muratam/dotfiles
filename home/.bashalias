@@ -1,6 +1,5 @@
 # if zsh exists, force bash -> zsh, without chsh
-# [[ $0 = "bash" ]] || :: destroys...
-( [[ $0 = "-bash" ]] || [[ $0 = "su" ]]  || [[ $0 = "-su" ]] ) && [[ $SHLVL -le 2 ]] && [[ -x "$(command -v zsh)" ]] &&  exec zsh -l
+( [[ $0 = "bash" ]] || [[ $0 = "-bash" ]] || [[ $0 = "su" ]]  || [[ $0 = "-su" ]] ) && [[ $SHLVL -le 2 ]] && [[ -x "$(command -v zsh)" ]] &&  exec zsh -l
 # use xterm-256
 [[ $TERM = "xterm" ]] && export TERM='xterm-256color'
 execable(){ [[ -x "$(command -v $1)" ]] || [[ "$(command -v $1)" != "" ]] ; }
@@ -49,9 +48,9 @@ execable tldr && alias f='tldr $(fc -ln -1 | tail -n 1 | p 1)'
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
-export LESS='-imMRSF'
+# export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
-unset MAILCHECK
+# unset MAILCHECK
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
 # node modules without sudo
@@ -66,9 +65,9 @@ export-path ~/.usr/bin
 # for isucon
 export-path ~/bin
 [[ -f ~/env.sh ]] && source ~/env.sh
-alias dstat="dstat -t -a"
-alias accesslog="alp --sum -r --aggregates='/keyword/.*' -f" # accsess.log
-alias slowlog="pt-query-digest --limit 10" # slow.log
+# alias dstata="dstat -t -a"
+# alias accesslog="alp --sum -r --aggregates='/keyword/.*' -f" # accsess.log
+# alias slowlog="pt-query-digest --limit 10" # slow.log
 
 # homeshick
 [[ -d ~/.homesick/repos/homeshick ]] && alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
