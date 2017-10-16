@@ -77,7 +77,7 @@ export-path ~/.local/bin
 # /usr/local/bin を優先
 export-path /usr/local/bin
 # local installs
-export-path ~/.usr/bin
+export-path ~/.root/bin
 
 # homeshick
 if [[ -d ~/.homesick/repos ]]; then
