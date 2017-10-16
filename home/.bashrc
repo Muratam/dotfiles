@@ -78,6 +78,7 @@ export-path ~/.local/bin
 export-path /usr/local/bin
 # local installs
 export-path ~/.root/bin
+export-path ~/.root/usr/bin/
 
 # homeshick
 if [[ -d ~/.homesick/repos ]]; then
