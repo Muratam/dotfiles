@@ -1,7 +1,7 @@
 #! /bin/bash
 # iikanji command lists
 declare recommendeds=( git tmux zsh vim tig tree wget unzip less )
-declare convinients=( highlight )
+declare convinients=( highlight vnstat nmap )
 execable(){ [[ -x "$(command -v $1)" ]] || [[ "$(command -v $1)" != "" ]] ; }
 green(){ echo "`tput setaf 2`$@`tput sgr0`"; }
 yellow(){ echo "`tput setaf 3`$@`tput sgr0`"; }
