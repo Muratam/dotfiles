@@ -52,3 +52,5 @@ if [[ -d ~/.cargo ]] && [[ -d ~/.rustup ]] ; then
   fi
 fi
 
+[[ -d "$HOME/.gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+

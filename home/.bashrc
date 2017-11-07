@@ -40,7 +40,6 @@ alias py='python3 -q'
 alias pip="pip3"
 alias tree='tree -CF'
 alias pe='perl -pe'
-alias les="/usr/share/vim/**/less.sh"
 # execable rg && alias grep='rg'
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
@@ -49,7 +48,8 @@ mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
 p(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
 
 # benri commands
-execable highlight && alias ca='highlight -O xterm256 -s rdark --force'
+execable highlight && ca(){ highlight -O xterm256 -s rdark --force $@ ; } \
+                   && les(){ ca $@ | less ; }
 execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
 execable irb && alias irb='irb --simple-prompt'
 execable tldr && alias f='tldr $(fc -ln -1 | tail -n 1 | p 1)'
