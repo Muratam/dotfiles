@@ -45,9 +45,9 @@ done
 green installed
 
 # isucon :: netdata (localhost:19999)
-echo "install `tput setaf 3` netdata `tput sgr0`"
-yes | bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)
-green installed
+# echo "install `tput setaf 3` netdata `tput sgr0`"
+# yes | bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)
+# green installed
 
 # isucon :: alp
 echo "install `tput setaf 3` alp `tput sgr0`"
@@ -63,3 +63,6 @@ green installed
 #sudo apt install libdbd-mysql-perl libdbi-perl libio-socket-ssl-perl libnet-ssleay-perl
 #sudo dpkg -i percona-toolkit_3.0.4-1.xenial_amd64.deb
 #green installed
+
+yellow "use zsh as default"
+execable zsh && which zsh | sudo chsh $USER
