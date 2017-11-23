@@ -30,6 +30,7 @@ fi
 
 ${HOME}/.homesick/repos/homeshick/bin/homeshick link dotfiles
 echo "source ~/.bashalias" >> ~/.bashrc
+sed -i '1ishopt(){} ; complete(){} ;' ~/.bashrc
 
 # install recommended command
 bash ${HOME}/.homesick/repos/dotfiles/recommend.sh
