@@ -89,3 +89,9 @@ _vcs_git_indicator() {
 add-zsh-hook precmd _vcs_git_indicator
 PROMPT="%F{green}[%~ @%m] \$vcs_info_msg_0_ \$_vcs_git_indicator
 %(?!%F{cyan}%1~ %(!.#.$)!%F{red}%1~ \$?) %f"
+
+
+# autocomplete pass
+execable pass && pcg(){ pass generate -n -c $@ 16 && pass $@ ;  } \
+              && alias pc="pass -c" && compdef _pass pc \
+              && alias p="pass" && compdef _pass p
