@@ -47,12 +47,24 @@
         "WARN:",
         "NOTE:"
     ],
-    "code-runner.executorMap": {
-        "cpp": "vscode_cpp_run(){ clang++ -std=c++14 -o out $1; if [ -f test.txt ]; then cat test.txt | ./out ;else ./out ; fi ;rm ./out; }; vscode_cpp_run ",
-        "python": "python3 ",
-        "d": "dub test -q ;echo "
-    },
-    "latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
+    // "code-runner.executorMap": {
+    //     "cpp": "vscode_cpp_run(){ clang++ -std=c++14 -o out $1; if [ -f test.txt ]; then cat test.txt | ./out ;else ./out ; fi ;rm ./out; }; vscode_cpp_run ",
+    //     "python": "python3 ",
+    //     "d": "dub test -q ;echo "
+    // },
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.latex.toolchain": [
+        {
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ]
+        }
+    ],
+    //"latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
     "clang.executable": "clang++",
     "clang.cxxflags": [
         "-std=c++14"

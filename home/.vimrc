@@ -94,6 +94,7 @@ Plug 'itchyny/vim-cursorword'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nanotech/jellybeans.vim'
+Plug 'fatih/vim-go'
 if v:version > 702
   Plug 'itchyny/lightline.vim'
 endif
