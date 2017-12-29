@@ -8,8 +8,7 @@ execable(){ type $1 > /dev/null 2>&1 ;  }
 ###################
 if [[ "$(uname)" == 'Darwin' ]]; then
   alias ls='ls -G -F'
-  alias hl-chrome='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --headless --disable-gpu'
-  # --print-to-pdf,--dump-dom,--screenshot
+  alias hl-chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu'
 else
   alias ls='ls --color=auto -F'
   execable gnuls && alias ls='gnuls --color=auto -F'
@@ -61,9 +60,7 @@ fi
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
-export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
-# export EDITOR=vi # c-a c-e が効かなくなる
 unset MAILCHECK
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
