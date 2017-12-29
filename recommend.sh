@@ -1,15 +1,16 @@
 #! /bin/bash
 # iikanji command lists
 declare recommendeds=( git tmux zsh vim tig tree wget unzip less )
-declare convinients=( jq rlwrap highlight thefuck sshfs )
+declare convinients=( jq rlwrap highlight thefuck sshfs vnstat htop )
 declare brewtaps=( caskroom/cask caskroom/fonts homebrew/core sanemat/font )
 declare brewinstalls=( # huge commands for mac
   moreutils pandoc imagemagick docker
-  cmake nim node # eigen boost
+  cmake nim node gnupg pass lua # eigen boost
 )
 declare brewcasks=( # cask commands
   firefox hammerspoon thunderbird google-japanese-ime visual-studio-code
   kindle osxfuse gyazo google-chrome font-noto-sans-cjk-jp skype
+  unity steam
 )
 
 
@@ -44,7 +45,7 @@ installlist ${recommendeds[@]}
 for cmd in ${recommendeds[@]} ; do
   [[ "$(command -v $cmd)" == "" ]] && yellow $cmd && $manager $cmd
 done
-green installed
+green "installed"
 
 # install all convinient commands
 installlist ${convinients[@]}
@@ -52,13 +53,15 @@ installlist ${convinients[@]}
 for cmd in ${convinients[@]} ; do
   [[ "$(command -v $cmd)" == "" ]] && yellow $cmd && $manager $cmd
 done
-green installed
+green "installed"
 
 
 #### brew ####################################################
 
 # if not brew finish here
 if [[ "$(command -v brew)" == "" ]]; then
+  yellow "use zsh as default"
+  execable zsh && which zsh | sudo chsh $USER
   green "finished"
   exit 0
 fi
@@ -73,11 +76,32 @@ brewlist="$(brew list)"
 for cmd in ${brewinstalls[@]} ; do
   [[ ! $brewlist =~ $cmd ]]  && yellow $cmd && brew install $cmd
 done
-green installed
+brew cleanup
+green "installed"
+
 
 installlist ${brewcasks[@]}
 brewcasklist="$(brew cask list)"
 for cmd in ${brewcasks[@]} ; do
   [[ ! $brewcasklist =~ $cmd ]]  && yellow $cmd && brew cask install $cmd
 done
-green installed
+brew cask cleanup
+green "installed"
+
+
+yellow "install vim withlua"
+brew install vim --with-lua --with-luajit --with-override-system-vi
+green "installed"
+
+
+yellow "link gnupg "
+brew link gnupg
+green "linked"
+
+## # for lilypond (and install dev-ver manually)
+# brew install python2
+# pip2 install python-midi
+yellow "use zsh as default"
+execable zsh && chsh $USER
+
+green "all finished for OSX"
