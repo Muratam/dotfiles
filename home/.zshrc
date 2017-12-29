@@ -92,6 +92,10 @@ PROMPT="%F{green}[%~ @%m] \$vcs_info_msg_0_ \$_vcs_git_indicator
 
 
 # autocomplete pass
-execable pass && pcg(){ pass generate -n -c $@ 16 && pass $@ ;  } \
-              && alias pc="pass -c" && compdef _pass pc \
-              && alias p="pass" && compdef _pass p
+if execable pass ; then
+  pcg(){ pass generate -n -c $@ 16 && pass $@ ;  }
+  pc(){  pass -c $@ && pass $@ ; }
+  p(){ [[ $1 == "" ]] && echo "$(pass | tr -d '│├─└ ')" || pass $@; }
+  compdef _pass pc
+  compdef _pass p
+fi
