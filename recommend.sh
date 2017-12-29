@@ -101,6 +101,13 @@ green "linked"
 ## # for lilypond (and install dev-ver manually)
 # brew install python2
 # pip2 install python-midi
+
+yellow "install tex for mac"
+brew install ghostscript
+brew cask install mactex
+sudo tlmgr update --self --all
+green "finished install tex"
+
 yellow "use zsh as default"
 execable zsh && chsh $USER
 
