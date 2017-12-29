@@ -13,7 +13,7 @@
     "editor.cursorBlinking": "smooth",
     "editor.cursorStyle": "line",
     "window.zoomLevel": 0,
-    "window.openFoldersInNewWindow": "off",
+    "window.openFoldersInNewWindow": "on",
     "window.openFilesInNewWindow": "off",
     "files.trimTrailingWhitespace": true,
     "terminal.integrated.shell.osx": "/bin/zsh",
@@ -63,4 +63,5 @@
         "editor.tabSize": 2
     },
     "terminal.integrated.lineHeight": 1,
+    "editor.wordWrap": "off",
 }
