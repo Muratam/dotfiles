@@ -68,12 +68,16 @@ function run(input, parameters) {
     if (input[0] in keyMovements) {
       keyMove(keyMovements[input[0]])
     } else {
-      if (isNaN(Number(input[0]))) {
+      n = Number(input[0])
+      if (isNaN(n)) {
         toggleActivateApplication(input[0])
       } else {
         docks = getDockInfo();
-        if (Number(input[0]) < docks.length) {
-          toggleActivateApplication(docks[Number(input[0])])
+        if (n < 0) {
+          n = docks.length + n
+        }
+        if (n < docks.length) {
+          toggleActivateApplication(docks[n])
         }
       }
     }

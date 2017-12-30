@@ -10,7 +10,7 @@ declare brewinstalls=( # huge commands for mac
 declare brewcasks=( # cask commands
   firefox hammerspoon thunderbird google-japanese-ime visual-studio-code
   kindle osxfuse gyazo google-chrome font-noto-sans-cjk-jp skype
-  unity steam
+  unity steam marshallofsound-google-play-music-player
 )
 
 
