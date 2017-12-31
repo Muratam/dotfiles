@@ -13,7 +13,7 @@
     "editor.cursorBlinking": "smooth",
     "editor.cursorStyle": "line",
     "window.zoomLevel": 0,
-    "window.openFoldersInNewWindow": "off",
+    "window.openFoldersInNewWindow": "on",
     "window.openFilesInNewWindow": "off",
     "files.trimTrailingWhitespace": true,
     "terminal.integrated.shell.osx": "/bin/zsh",
@@ -47,34 +47,33 @@
         "WARN:",
         "NOTE:"
     ],
-    "code-runner.executorMap": {
-        "cpp": "vscode_cpp_run(){ clang++ -std=c++14 -o out $1; if [ -f test.txt ]; then cat test.txt | ./out ;else ./out ; fi ;rm ./out; }; vscode_cpp_run ",
-        "python": "python3 ",
-        "d": "dub test -q ;echo "
-    },
-    "latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
+    // "code-runner.executorMap": {
+    //     "cpp": "vscode_cpp_run(){ clang++ -std=c++14 -o out $1; if [ -f test.txt ]; then cat test.txt | ./out ;else ./out ; fi ;rm ./out; }; vscode_cpp_run ",
+    //     "python": "python3 ",
+    //     "d": "dub test -q ;echo "
+    // },
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.latex.toolchain": [
+        {
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ]
+        }
+    ],
+    //"latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
     "clang.executable": "clang++",
     "clang.cxxflags": [
         "-std=c++14"
     ],
     "clang-format.style": "Google",
-    // rust////////////////////////////s
-    "rust.rls": {
-        "executable": "rustup",
-        "args": [
-            "run",
-            "nightly",
-            "rls"
-        ],
-        "revealOutputChannelOn": "info",
-        "useRustfmt": true
-    },
-    "rust.rustup": {
-        "toolchain": "nightly-x86_64-apple-darwin"
-    },
-    "rust.mode": "rls",
     "[nim]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2
     },
+    "terminal.integrated.lineHeight": 1,
+    "editor.wordWrap": "off",
 }

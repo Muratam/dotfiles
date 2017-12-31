@@ -89,3 +89,14 @@ _vcs_git_indicator() {
 add-zsh-hook precmd _vcs_git_indicator
 PROMPT="%F{green}[%~ @%m] \$vcs_info_msg_0_ \$_vcs_git_indicator
 %(?!%F{cyan}%1~ %(!.#.$)!%F{red}%1~ \$?) %f"
+
+
+# autocomplete pass
+if execable pass ; then
+  pcg(){ pass generate -n -c $@ 16 && pass $@ && pass git push origin master ; }
+  pc(){  pass -c $@ && pass $@ ; }
+  p(){ [[ $1 == "" ]] && echo "$(pass | tr -d '│├─└ ')" || pass $@; }
+  compdef _pass pcg
+  compdef _pass pc
+  compdef _pass p
+fi

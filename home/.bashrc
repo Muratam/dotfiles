@@ -1,6 +1,3 @@
-# if zsh exists, force bash -> zsh, without chsh
-# [[ $0 = "bash" ]] ||    :: destroys sftp
-( [[ $0 = "-bash" ]] || [[ $0 = "su" ]] ) && [[ $SHLVL -le 2 ]] && [[ -x "$(command -v zsh)" ]] &&  exec zsh -l
 # use xterm-256
 [[ $TERM = "xterm" ]] && export TERM='xterm-256color'
 execable(){ type $1 > /dev/null 2>&1 ;  }
@@ -11,8 +8,7 @@ execable(){ type $1 > /dev/null 2>&1 ;  }
 ###################
 if [[ "$(uname)" == 'Darwin' ]]; then
   alias ls='ls -G -F'
-  alias hl-chrome='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --headless --disable-gpu'
-  # --print-to-pdf,--dump-dom,--screenshot
+  alias hl-chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu'
 else
   alias ls='ls --color=auto -F'
   execable gnuls && alias ls='gnuls --color=auto -F'
@@ -40,19 +36,20 @@ alias py='python3 -q'
 alias pip="pip3"
 alias tree='tree -CF'
 alias pe='perl -pe'
-alias les="/usr/share/vim/**/less.sh"
 # execable rg && alias grep='rg'
 search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
-p(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
+awkp(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
 
 # benri commands
-execable highlight && alias ca='highlight -O xterm256 -s rdark --force'
+execable highlight && ca(){ highlight -O xterm256 -s rdark --force $@ ; } \
+                   && les(){ ca $@ | less ; }
 execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
 execable irb && alias irb='irb --simple-prompt'
-execable tldr && alias f='tldr $(fc -ln -1 | tail -n 1 | p 1)'
+execable tldr && f(){ tldr $(fc -ln -1 | awk '{print $1}'); }
+execable rainbowstream && tweet(){ rainbowstream ; rm .completer.hist; }
 [[ "$(command -v tac)" == "" ]] && alias tac='tail -r'
 
 if execable rlwrap ; then
@@ -64,9 +61,7 @@ fi
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
-export LESS='-imMRSF'
 export LANG=ja_JP.UTF-8
-# export EDITOR=vi # c-a c-e が効かなくなる
 unset MAILCHECK
 
 export-path(){ [[ -d $1 ]] && export PATH=$1:${PATH}; }
