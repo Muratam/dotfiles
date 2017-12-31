@@ -244,3 +244,5 @@ augroup BinaryXXD
   autocmd BufWritePost * set nomod | endif
 augroup END
 
+
+let g:go_version_warning = 0
