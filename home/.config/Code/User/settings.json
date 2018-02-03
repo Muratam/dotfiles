@@ -52,7 +52,7 @@
     //     "python": "python3 ",
     //     "d": "dub test -q ;echo "
     // },
-    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.chktex.enabled": false,
     "latex-workshop.latex.toolchain": [
         {
             "command": "ptex2pdf",

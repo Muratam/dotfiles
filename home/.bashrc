@@ -50,6 +50,7 @@ execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-
 execable irb && alias irb='irb --simple-prompt'
 execable tldr && f(){ tldr $(fc -ln -1 | awk '{print $1}'); }
 execable rainbowstream && tweet(){ rainbowstream ; rm .completer.hist; }
+execable colordiff && cdiff(){ colordiff -uprN $1 $2 | less -R; }
 [[ "$(command -v tac)" == "" ]] && alias tac='tail -r'
 
 if execable rlwrap ; then
