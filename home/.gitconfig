@@ -11,32 +11,63 @@
 [color]
     ui = auto
 [alias]
+    # 省略操作系
     a = add -A
-    b = branch
     c = commit -m
-    d = diff --color-words --ignore-blank-lines -w
-    l = log
+    ca = commit --amend -m
     p = push
-    pl = pull
-    s = status --short
     po = push origin
     pom = push origin master
+    pl = pull
     plo = pull origin
     plom = pull origin master
-    lst = log --stat
     co = checkout
-    cob = checkout -b
-    com = checkout master
-    resetfile = checkout HEAD --
-    ac = commit -am
-    au = add -u # 新規ファイル以外 add
-    ca = commit --amend -m #直前のコミットに修正を追加
-    cp = cherry-pick #特定のコミットIDのもののみ反映
-    dc = diff --cached #commitで反映される変更を表示
-    br = browse-remote
-    #pp = pull --prune
-    #sta = stash
-    #ap = add -p
+    # 省略確認系
+    s = status --short
+    b = branch
+    l = log
+    d = diff --color-words --ignore-blank-lines -w
+    # 分かりやすさ優先 (ref:https://postd.cc/human-git-aliases/)
+    ## リストアップ系
+    tags = tag
+    stashes = stash list
+    remotes = remote -v
+    branches = branch -a --sort=committerdate
+    contributors = shortlog -s -n --no-merges
+    aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\:\\ /
+    ## ブランチ操作系
+    new-branch = checkout -b
+    rename-branch = branch -m
+    delete-branch = branch -D
+    back-branch = checkout "@{-1}"
+    # 特定ファイルのみ操作系
+    trail-file = log --follow -p -w
+    reset-file = checkout HEAD --
+    ignore-file = rm --cached
+    rename-file = mv
+    ## ステージング系
+    unadd = reset -q HEAD --
+    diff-add = diff
+    ## コミット系
+    uncommit = reset --mixed HEAD~
+    diff-commit = diff --cached --diff-algorithm=minimal -w
+    # マージ系
+    unmerged = diff --name-only --diff-filter=U
+    diff-merge = log --ancestry-path --merges
+    ## その他
+    #show # 最新の一件のコメント表示
+    #rebase # コミット履歴を変更
+    patch = add --patch # 一ファイル内で分割してaddできる
+    unstash = stash pop # stashで退避したものを戻す
+    cherrypick = cherry-pick #特定のコミットIDのもののみ反映
+    clean-all = !git reset --hard HEAD && git clean -d -f # 変更完全削除
+    history = log -10 --format=format:'%Cgreen%h %Creset%s (%aN, %ar)' # 代替 tig
+[diff]
+    compactionHeuristic = true
+    indentHeuristic = true
+    algorithm = patience
+[interactive]
+    diffFilter = diff-highlight
 [core]
     pager = less
     autocrlf = input
