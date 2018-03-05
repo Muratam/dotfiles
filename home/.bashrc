@@ -42,7 +42,7 @@ search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
 awkp(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
-
+alias flattentree="$HOME/.homesick/repos/dotfiles/module/python3/flattentree.py"
 # benri commands
 execable highlight && ca(){ highlight -O xterm256 -s rdark --force $@ ; } \
                    && les(){ ca $@ | less ; }

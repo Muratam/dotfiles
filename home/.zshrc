@@ -95,7 +95,7 @@ PROMPT="%F{green}[%~ @%m] \$vcs_info_msg_0_ \$_vcs_git_indicator
 if execable pass ; then
   pcg(){ pass generate -n -c $@ 16 && pass $@ && pass git push origin master ; }
   pc(){  pass -c $@ ; } # && pass $@ ; }
-  p(){ [[ $1 == "" ]] && echo "$(pass | tr -d '│├─└ ')" || pass $@; }
+  p(){ [[ $1 == "" ]] && echo "$(pass | tr -d '│├─└ '|flattentree)" || pass $@; }
   compdef _pass pcg
   compdef _pass pc
   compdef _pass p
