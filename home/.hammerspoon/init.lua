@@ -1,4 +1,4 @@
-local prefix = {"alt"}
+local prefix = {"ctrl","cmd"}
 
 function moveWindow(rect_percent)
     local window = hs.window.focusedWindow()
