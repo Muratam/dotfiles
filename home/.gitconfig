@@ -18,9 +18,9 @@
     p = push
     po = push origin
     pom = push origin master
-    pl = pull
-    plo = pull origin
-    plom = pull origin master
+    pl = pull --rebase
+    plo = pull --rebase origin
+    plom = pull origin master --rebase
     co = checkout
     # 省略確認系
     s = status --short
@@ -38,10 +38,12 @@
     ## ブランチ操作系
     new-branch = checkout -b
     rename-branch = branch -m
-    delete-branch = branch -D
+    delete-branch = branch -d # マージ済みのもののみ
     back-branch = checkout "@{-1}"
+    delete-all-branches = !git branch --merged  | grep -v \\* | xargs -I % git branch -d %
     # 特定ファイルのみ操作系
     trail-file = log --follow -p -w
+    trail-file-short = log --follow -w
     reset-file = checkout HEAD --
     ignore-file = rm --cached
     rename-file = mv

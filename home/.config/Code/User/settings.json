@@ -76,4 +76,6 @@
     },
     "terminal.integrated.lineHeight": 1,
     "editor.wordWrap": "off",
+    "gitlens.keymap": "alternate",
+    "csharp.referencesCodeLens.enabled": false,
 }
