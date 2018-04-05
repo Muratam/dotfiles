@@ -70,12 +70,25 @@
         "-std=c++14"
     ],
     "clang-format.style": "Google",
-    "[nim]": {
+    "[python]": {
         "editor.insertSpaces": true,
-        "editor.tabSize": 2
+        "editor.tabSize": 4
     },
     "terminal.integrated.lineHeight": 1,
     "editor.wordWrap": "off",
     "gitlens.keymap": "alternate",
     "csharp.referencesCodeLens.enabled": false,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "javascript.format.enable": false,
+    "editor.tabSize": 2,
+    "workbench.editor.enablePreview": false,
 }
