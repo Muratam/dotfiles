@@ -23,7 +23,7 @@ function blockDoublePressedHKey(e)
     if e:getKeyCode() ~= 4 then return false end
     if not hPressed then
         hPressed = true
-        hs.timer.doAfter(0.18,function() hPressed = false end)
+        hs.timer.doAfter(0.23,function() hPressed = false end)
         return false
     else
         -- print("blocked H Key !!")
@@ -52,7 +52,7 @@ hs.hotkey.bind(prefix, "9", function() execApps("8") end)
 hs.hotkey.bind(prefix, "0", function() execApps("9") end)
 -- hキーのチャタリング防止
 hs.eventtap.new(
-    {hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp},
+    {hs.eventtap.event.types.keyDown},
     blockDoublePressedHKey
 ):start()
 
