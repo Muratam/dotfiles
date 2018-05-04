@@ -9,3 +9,4 @@ VSCode.meta
 __pycache__/
 .pyc
 *completer.hist
+nimcache/

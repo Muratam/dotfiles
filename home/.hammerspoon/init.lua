@@ -23,7 +23,7 @@ function blockDoublePressedHKey(e)
     if e:getKeyCode() ~= 4 then return false end
     if not hPressed then
         hPressed = true
-        hs.timer.doAfter(0.23,function() hPressed = false end)
+        hs.timer.doAfter(0.30,function() hPressed = false end)
         return false
     else
         -- print("blocked H Key !!")

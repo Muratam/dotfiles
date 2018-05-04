@@ -53,7 +53,7 @@
     //     "d": "dub test -q ;echo "
     // },
     "latex-workshop.chktex.enabled": false,
-    "latex-workshop.latex.toolchain": [
+    "latex-workshop.latex.tools": [
         {
             "command": "ptex2pdf",
             "args": [
@@ -90,4 +90,6 @@
     },
     "editor.tabSize": 2,
     "workbench.editor.enablePreview": false,
+    "editor.renderControlCharacters": true,
+    "workbench.tree.horizontalScrolling": true,
 }
