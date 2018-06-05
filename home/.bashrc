@@ -20,7 +20,7 @@ alias du='du -h'
 alias od='od -c'
 alias su='su -l'
 alias grep='grep --color=auto'
-alias xargs='xargs -I{} --no-run-if-empty bash -c'
+alias xargs='xargs -I{} bash -c'
 
 # aliases
 alias la='ls -A'

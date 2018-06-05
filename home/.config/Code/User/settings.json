@@ -65,14 +65,16 @@
         }
     ],
     //"latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
-    "clang.executable": "clang++",
-    "clang.cxxflags": [
-        "-std=c++14"
-    ],
-    "clang-format.style": "Google",
+    // "clang.executable": "clang++",
+    // "clang.cxxflags": [
+    // "-std=c++14"
+    // ],
+    // "clang-format.style": "Google",
     "[python]": {
         "editor.insertSpaces": true,
-        "editor.tabSize": 4
+    },
+    "[csharp]": {
+        "editor.insertSpaces": true,
     },
     "terminal.integrated.lineHeight": 1,
     "editor.wordWrap": "off",
@@ -92,4 +94,5 @@
     "workbench.editor.enablePreview": false,
     "editor.renderControlCharacters": true,
     "workbench.tree.horizontalScrolling": true,
+    "gitlens.historyExplorer.enabled": true,
 }

@@ -1,5 +1,4 @@
 source ~/.bashrc
-
 autoload -U compinit; compinit
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' special-dirs true # ..を補完
@@ -54,13 +53,13 @@ setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに�
 
 # command color
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # command hist color
+# ちょっと重いがこれが無いとやってられない
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #fpath=(~/.zsh/zsh-completions/src $fpath)
-
 # 実行時間が3秒以上ならtime表示
 # REPORTTIME=3
-
 # vcs
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
@@ -89,7 +88,6 @@ _vcs_git_indicator() {
 add-zsh-hook precmd _vcs_git_indicator
 PROMPT="%F{green}[%~ @%m] \$vcs_info_msg_0_ \$_vcs_git_indicator
 %(?!%F{cyan}%1~ %(!.#.$)!%F{red}%1~ \$?) %f"
-
 
 # autocomplete pass
 if execable pass ; then
