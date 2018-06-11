@@ -95,4 +95,5 @@
     "editor.renderControlCharacters": true,
     "workbench.tree.horizontalScrolling": true,
     "gitlens.historyExplorer.enabled": true,
+    "C_Cpp.clang_format_fallbackStyle": "Google",
 }
