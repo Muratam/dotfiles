@@ -6,9 +6,9 @@ if [[ -x "$(command -v nim)" ]]; then
   nimcompile(){ nim c -d:release --hints:off --verbosity:0 --nimcache:./nimcache $@ ; } # for compile
   alias nimr-pure="nimcompile -r" # pure
   nimr(){
-    exename="$(echo $1 | sed 's/\.[^\.]*$//')"
+    exename="$(echo $@[-1] | sed 's/\.[^\.]*$//')"
     [[ -f "nimcache/$exename" ]] && mv nimcache/$exename ./
-    nimcompile -r $@ # -d:ssl
+    nimcompile -r $@
     [[ -f $exename ]] && [[ -d "nimcache" ]] && mv $exename nimcache
   }
   export-path ~/.nimble/bin/

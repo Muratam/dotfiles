@@ -53,17 +53,15 @@
     //     "d": "dub test -q ;echo "
     // },
     "latex-workshop.chktex.enabled": false,
-    "latex-workshop.latex.tools": [
-        {
-            "command": "ptex2pdf",
-            "args": [
-                "-l",
-                "-ot",
-                "-kanji=utf8 -synctex=1",
-                "%DOC%"
-            ]
-        }
-    ],
+    "latex-workshop.latex.tools": [{
+        "command": "ptex2pdf",
+        "args": [
+            "-l",
+            "-ot",
+            "-kanji=utf8 -synctex=1",
+            "%DOC%"
+        ]
+    }],
     //"latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
     // "clang.executable": "clang++",
     // "clang.cxxflags": [
@@ -72,9 +70,11 @@
     // "clang-format.style": "Google",
     "[python]": {
         "editor.insertSpaces": true,
+        "editor.tabSize": 4,
     },
     "[csharp]": {
         "editor.insertSpaces": true,
+        "editor.tabSize": 4,
     },
     "terminal.integrated.lineHeight": 1,
     "editor.wordWrap": "off",
