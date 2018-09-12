@@ -29,7 +29,6 @@ alias ll='ls -lh'
 alias lla='ls -lah'
 alias l='ls'
 alias g='git'
-alias t='tmux'
 alias ta='tmux a'
 alias ds='du -hs * 2> /dev/null'
 alias py='python3 -q'
@@ -72,4 +71,10 @@ export-path ~/bin
 
 # homeshick
 [[ -d ~/.homesick/repos/homeshick ]] && alias homeshick="${HOME}/.homesick/repos/homeshick/bin/homeshick"
+
+t(){
+  tmux ls
+  [[ $1 != "" ]] &&  tmux new -s $1
+  [[ $1 != "" ]] && tmux a -t $1
+}
 
