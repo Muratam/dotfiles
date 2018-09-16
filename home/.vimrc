@@ -1,3 +1,4 @@
+let g:go_version_warning = 0
 set nocompatible
 set encoding=utf-8
 set nobackup
