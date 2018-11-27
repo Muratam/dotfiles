@@ -26,6 +26,7 @@
     s = status --short
     b = branch
     l = log
+    f = fetch
     d = diff --color-words --ignore-blank-lines -w
     # 分かりやすさ優先 (ref:https://postd.cc/human-git-aliases/)
     ## リストアップ系

@@ -3,7 +3,6 @@
     "editor.scrollBeyondLastLine": false,
     "editor.autoClosingBrackets": false,
     "editor.formatOnType": true,
-    "editor.formatOnSave": true,
     "editor.tabCompletion": true,
     "editor.detectIndentation": true,
     "editor.renderIndentGuides": true,
@@ -45,7 +44,7 @@
     ],
     "todohighlight.keywords": [
         "WARN:",
-        "NOTE:"
+        "NOTE:",
     ],
     // "code-runner.executorMap": {
     //     "cpp": "vscode_cpp_run(){ clang++ -std=c++14 -o out $1; if [ -f test.txt ]; then cat test.txt | ./out ;else ./out ; fi ;rm ./out; }; vscode_cpp_run ",
@@ -90,10 +89,13 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
+    "telemetry.enableTelemetry": false,
     "editor.tabSize": 2,
     "workbench.editor.enablePreview": false,
     "editor.renderControlCharacters": true,
     "workbench.tree.horizontalScrolling": true,
     "gitlens.historyExplorer.enabled": true,
     "C_Cpp.clang_format_fallbackStyle": "Google",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.formatOnSave": true,
 }

@@ -21,7 +21,6 @@ alias od='od -c'
 alias su='su -l'
 alias grep='grep --color=auto'
 alias xargs='xargs -I{} bash -c'
-
 # aliases
 alias la='ls -A'
 alias ll='ls -lh'
@@ -41,14 +40,15 @@ search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
-awkp(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
+# awkp(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
+cut(){ sed 's/[\t ]\+/\t/g' | /usr/bin/cut "$@";  }
 alias flattentree="$HOME/.homesick/repos/dotfiles/module/python3/flattentree.py"
 # benri commands
 execable highlight && ca(){ highlight -O xterm256 -s rdark --force $@ ; } \
                    && les(){ ca $@ | less ; }
 execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
 execable irb && alias irb='irb --simple-prompt'
-execable tldr && f(){ tldr $(fc -ln -1 | awk '{print $1}'); }
+execable tldr && f(){ com=$(fc -ln -1 | awk '{print $1}'); tldr $com || man $com || which $com }
 execable rainbowstream && tweet(){ rainbowstream ; rm .completer.hist; }
 execable colordiff && cdiff(){ colordiff -uprN $1 $2 | less -R; }
 [[ "$(command -v tac)" == "" ]] && alias tac='tail -r'

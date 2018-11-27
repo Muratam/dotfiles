@@ -122,7 +122,7 @@ filetype plugin indent on
 if has('lua')
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplcache_enable_smart_case = 2
-  let g:neocomplcache_min_syntax_length = 3
+  let g:neocomplcache_min_syntax_length = 2
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
   " unite

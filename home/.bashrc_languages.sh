@@ -3,10 +3,11 @@ export-path ~/codes/dlang/workspace-d/bin
 
 # nim
 if [[ -x "$(command -v nim)" ]]; then
-  nimcompile(){ nim c -d:release --hints:off --verbosity:0 --nimcache:./nimcache $@ ; } # for compile
+  nimcompile(){ nim c -d:release  --hints:off --verbosity:0 --nimcache:./nimcache $@ ; } # for compile
   alias nimr-pure="nimcompile -r" # pure
   nimr(){
-    exename="$(echo $@[-1] | sed 's/\.[^\.]*$//')"
+    # $@[-1]
+    exename="$(echo $1 | sed 's/\.[^\.]*$//')"
     [[ -f "nimcache/$exename" ]] && mv nimcache/$exename ./
     nimcompile -r $@
     [[ -f $exename ]] && [[ -d "nimcache" ]] && mv $exename nimcache
