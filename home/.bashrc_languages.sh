@@ -14,6 +14,11 @@ if [[ -x "$(command -v nim)" ]]; then
     [[ -f $exename ]] && [[ -d "nimcache" ]] && mv $exename nimcache
   }
   nimrr(){ NIMR_COMPILE_FLAG="-d:release" nimr $@ }
+  nimprof(){
+    nimrr --profiler:on --stackTrace:on $@
+    nimprofparser profile_results.txt | flamegraph.pl > profile_results.svg
+    rm profile_results.txt
+  }
 
   export-path ~/.nimble/bin/
   # oj

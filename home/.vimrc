@@ -81,6 +81,8 @@ nnoremap q <Nop>
 nnoremap ; :
 nnoremap <Space> za
 " :a! で ペーストするとインデントなし
+"noremap j gj
+"noremap k gk
 
 "augroup local
 "  au!

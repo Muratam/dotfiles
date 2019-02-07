@@ -1,9 +1,8 @@
 {
     "git.autofetch": false,
     "editor.scrollBeyondLastLine": false,
-    "editor.autoClosingBrackets": false,
-    "editor.formatOnType": true,
-    "editor.tabCompletion": true,
+    // "editor.autoClosingBrackets": false,
+    // "editor.tabCompletion": true,
     "editor.detectIndentation": true,
     "editor.renderIndentGuides": true,
     "editor.minimap.enabled": false,
@@ -11,7 +10,7 @@
     "editor.renderWhitespace": "all",
     "editor.cursorBlinking": "smooth",
     "editor.cursorStyle": "line",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "window.openFoldersInNewWindow": "on",
     "window.openFilesInNewWindow": "off",
     "files.trimTrailingWhitespace": true,
@@ -51,22 +50,25 @@
     //     "python": "python3 ",
     //     "d": "dub test -q ;echo "
     // },
-    "latex-workshop.chktex.enabled": false,
-    "latex-workshop.latex.tools": [{
-        "command": "ptex2pdf",
-        "args": [
-            "-l",
-            "-ot",
-            "-kanji=utf8 -synctex=1",
-            "%DOC%"
-        ]
-    }],
+    // "latex-workshop.chktex.enabled": false,
+    // "latex-workshop.latex.tools": [{
+    //     "command": "ptex2pdf",
+    //     "args": [
+    //         "-l",
+    //         "-ot",
+    //         "-kanji=utf8 -synctex=1",
+    //         "%DOC%"
+    //     ]
+    // }],
     //"latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
     // "clang.executable": "clang++",
     // "clang.cxxflags": [
     // "-std=c++14"
     // ],
     // "clang-format.style": "Google",
+    "[nim]": {
+        "editor.formatOnSave": false
+    },
     "[python]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 4,
@@ -76,7 +78,6 @@
         "editor.tabSize": 4,
     },
     "terminal.integrated.lineHeight": 1,
-    "editor.wordWrap": "off",
     "gitlens.keymap": "alternate",
     "csharp.referencesCodeLens.enabled": false,
     "gitlens.advanced.messages": {
@@ -94,8 +95,11 @@
     "workbench.editor.enablePreview": false,
     "editor.renderControlCharacters": true,
     "workbench.tree.horizontalScrolling": true,
-    "gitlens.historyExplorer.enabled": true,
+    // "gitlens.historyExplorer.enabled": true,
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "workbench.startupEditor": "newUntitledFile",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
 }
