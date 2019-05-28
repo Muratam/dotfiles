@@ -10,3 +10,4 @@ __pycache__/
 .pyc
 *completer.hist
 nimcache/
+Assets/common/Prefavs.meta

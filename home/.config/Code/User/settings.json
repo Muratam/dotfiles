@@ -10,7 +10,7 @@
     "editor.renderWhitespace": "all",
     "editor.cursorBlinking": "smooth",
     "editor.cursorStyle": "line",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "window.openFoldersInNewWindow": "on",
     "window.openFilesInNewWindow": "off",
     "files.trimTrailingWhitespace": true,
@@ -37,9 +37,9 @@
     "background.useFront": false,
     "background.useDefault": false,
     "background.customImages": [
-        "/sers/murata/icloud/pics/background/chama.jpg",
-        "/sers/murata/icloud/pics/background/chama.jpg",
-        "/sers/murata/icloud/pics/background/chama.jpg"
+        "/Users/murata/icloud/images/background/chama.jpg",
+        "/Users/murata/icloud/images/background/chama.jpg",
+        "/Users/murata/icloud/images/background/chama.jpg"
     ],
     "todohighlight.keywords": [
         "WARN:",
@@ -66,8 +66,12 @@
     // "-std=c++14"
     // ],
     // "clang-format.style": "Google",
+    "go.gopath": "/User/murata/go",
     "[nim]": {
         "editor.formatOnSave": false
+    },
+    "[go]": {
+        "editor.formatOnSave": true
     },
     "[python]": {
         "editor.insertSpaces": true,
@@ -102,4 +106,9 @@
     "gitlens.views.lineHistory.enabled": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "gitlens.blame.heatmap.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "files.insertFinalNewline": true,
+    "breadcrumbs.enabled": true,
 }

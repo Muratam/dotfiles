@@ -6,8 +6,8 @@
 #[filter "media"]
 #    clean = git-media-clean %f
 #    smudge = git-media-smudge %f
-#[merge]
-#    ff = false
+[merge]
+    ff = false
 [color]
     ui = auto
 [alias]
@@ -18,9 +18,9 @@
     p = push
     po = push origin
     pom = push origin master
-    pl = pull #--rebase
-    plo = pull origin #--rebase
-    plom = pull origin master #--rebase
+    # pl = pull --rebase
+    # plo = pull origin --rebase
+    # plom = pull origin master --rebase
     co = checkout
     # 省略確認系
     s = status --short

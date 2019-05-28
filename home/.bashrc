@@ -2,7 +2,6 @@
 [[ $TERM = "xterm" ]] && export TERM='xterm-256color'
 execable(){ type $1 > /dev/null 2>&1 ;  }
 
-
 ###################
 ### SET ALIASES ###
 ###################
@@ -40,7 +39,7 @@ search-word(){ grep -rI --exclude-dir={.git,"*vendor/bundle*"} "$@" . ; }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
-# awkp(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
+awkp(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
 cut(){ sed 's/[\t ]\+/\t/g' | /usr/bin/cut "$@";  }
 alias flattentree="$HOME/.homesick/repos/dotfiles/module/python3/flattentree.py"
 # benri commands
@@ -48,7 +47,9 @@ execable highlight && ca(){ highlight -O xterm256 -s rdark --force $@ ; } \
                    && les(){ ca $@ | less ; }
 execable ipython3 && ipy(){ ipython3 --quiet --autoindent --pprint --no-confirm-exit --no-term-title --quick --nosep --no-simple-prompt --no-banner --classic -c "from numpy import *;from numpy.linalg import *;from pprint import pprint as p;`[[ $DISPLAY ]] && echo 'import matplotlib.pyplot as plt'`" -i ; }
 execable irb && alias irb='irb --simple-prompt'
-execable tldr && f(){ com=$(fc -ln -1 | awk '{print $1}'); tldr $com || man $com || which $com }
+f(){
+  com=$(fc -ln -1 | awk '{print $1}'); tldr $com || man $com || which $com
+}
 execable rainbowstream && tweet(){ rainbowstream ; rm .completer.hist; }
 execable colordiff && cdiff(){ colordiff -uprN $1 $2 | less -R; }
 [[ "$(command -v tac)" == "" ]] && alias tac='tail -r'
@@ -75,7 +76,6 @@ export-path /usr/local/bin
 # local installs
 export-path ~/.root/bin
 export-path ~/.root/usr/bin/
-
 # homeshick
 if [[ -d ~/.homesick/repos ]]; then
   export PYTHONPATH=${PYTHONPATH}:~/.homesick/repos/dotfiles/module/python3
@@ -87,3 +87,4 @@ fi
 
 # include languages settings (for miner languages)
 source ~/.bashrc_languages.sh
+export-path ~/.nimble/bin
