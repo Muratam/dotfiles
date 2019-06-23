@@ -1,66 +1,69 @@
+" 基本設定
 set nocompatible
 set encoding=utf-8
-set nobackup
-set number
+set number " 行番号を表示する
 set title
-"backspace
-set backspace=start,eol,indent
-" indent when wrap
-"set breakindent
-"mouse
-set mouse=a
-"no preview
-set completeopt=menuone
-"選択行を強調する
-set cursorline
-" always show status bar
-set laststatus=2
-" remove vim mode information
-set noshowmode
-"括弧の対応
-set showmatch
-" カーソルを行頭、行末で止まらないようにする
-set whichwrap=b,s,h,l,<,>,[,]
 
-"--------tab--------
+
+" -------- File -----------
+set confirm    " 保存されていないファイルがあるときは終了前に保存確認
+set hidden     " 保存されていないファイルがあるときでも別のファイルを開く
+set nobackup   " ファイル保存時にバックアップファイルを作らない
+"set autoread   "外部でファイルに変更がされた場合は読みなおす
+"set noswapfile " ファイル編集中にスワップファイルを作らない
+
+
+" -------- View -----------
+set backspace=start,eol,indent  "backspace
+"set breakindent        " indent when wrap
+set completeopt=menuone "no preview
+set cursorline          "選択行を強調する
+" set cursorcolumn " カーソル位置のカラムの背景色を変える
+set laststatus=2 " always show status bar
+set noshowmode   " remove vim mode information
+set showmatch    "括弧の対応
+set whichwrap=b,s,h,l,<,>,[,]  " カーソルを行頭、行末で止まらないようにする
+set scrolloff=8                " 上下8行の視界を確保
+set sidescrolloff=16           " 左右スクロール時の視界を確保
+set sidescroll=1               " 左右スクロールは一文字づつ行う
+
+" ---------- Operation ----------
+set mouse=a             "mouse
+set clipboard=unnamed,unnamedplus " OS yank put
+set shellslash  " Windows でもパスの区切り文字を / にする
+" set iminsert=2 " インサートモードから抜けると自動的にIMEをオフにする ?
+
+
+
+
+"-------- Tab / Space --------
 "tabをspaceにするなど
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-"tab空白表示
+set expandtab " タブ入力を複数の空白入力に置き換える
+set tabstop=2 " 画面上でタブ文字が占める幅
+set shiftwidth=2 " 自動インデントでずれる幅
+set softtabstop=2 " 連続した空白に tab / bs でカーソルが動く幅
 set list
-set listchars=tab:>-,trail:_
-"自動インデント
-set autoindent
+set listchars=tab:--,trail:_,extends:>,precedes:<
+set autoindent " 改行時に前の行のインデントを継続する
 set cindent
-" trim space
-autocmd BufWritePre * :%s/\s\+$//ge
-" Change tabwidth by file type
+autocmd BufWritePre * :%s/\s\+$//ge " trim space
 au FileType python,java,scala,groovy
-  \ setlocal tabstop=4 shiftwidth=4 softtabstop=4
+\ setlocal tabstop=4 shiftwidth=4 softtabstop=4 " Change tabwidth by file type
 
-"-------Search--------
-"インクリメンタルサーチを有効にする
-set incsearch
-"大文字小文字を区別しない
-set ignorecase
-"大文字で検索されたら対象を大文字限定にする
-set smartcase
-"行末まで検索したら行頭に戻る
-set wrapscan
-"検索をハイライト
-set hlsearch
-" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+"------- Search --------
+set incsearch "インクリメンタルサーチを有効にする
+set ignorecase "大文字小文字を区別しない
+set smartcase "大文字で検索されたら対象を大文字限定にする
+set wrapscan "行末まで検索したら行頭に戻る
+set hlsearch "検索をハイライト
+"検索後にジャンプした際に検索単語を画面中央に持ってくる
 nnoremap n nzz
 nnoremap N Nzz
-"検索やコマンドの履歴
-set history=50
-"補完設定
-set wildmode=longest,list,full
+set history=50 "検索やコマンドの履歴
+set wildmode=longest,list,full "補完設定
 set pastetoggle=<C-k>
 
-" keymap
+" ------ KeyMap -------------
 " C-f to esc
 inoremap <C-f> <Esc>
 vnoremap <C-f> <Esc>
@@ -78,6 +81,8 @@ nnoremap q <Nop>
 nnoremap ; :
 nnoremap <Space> za
 " :a! で ペーストするとインデントなし
+"noremap j gj
+"noremap k gk
 
 "augroup local
 "  au!
@@ -85,7 +90,7 @@ nnoremap <Space> za
 "augroup END
 
 
-" plug
+" ------- Plug ----------
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'croaker/mustang-vim'
@@ -109,9 +114,9 @@ Plug 'chr4/nginx.vim'
 call plug#end()
 
 autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
+\  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+\|   PlugInstall --sync | q
+\| endif
 
 filetype plugin indent on
 
@@ -119,7 +124,7 @@ filetype plugin indent on
 if has('lua')
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplcache_enable_smart_case = 2
-  let g:neocomplcache_min_syntax_length = 3
+  let g:neocomplcache_min_syntax_length = 2
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
   " unite
@@ -172,30 +177,30 @@ set foldlevel=20
 
 " keymaps
 let g:keymaps =  [
-      \  {
-      \    'name': 'PASTE',
-      \    'paste': 1
-      \  },
-      \]
+\  {
+\    'name': 'PASTE',
+\    'paste': 1
+\  },
+\]
 
  " lightline
 let g:lightline = {
-      \ 'component': {
-      \   'total_lines': '%L',
-      \ },
-      \ 'component_function': {
-      \   'git_path': 'GitRelativePath',
-      \   'keymap': 'keymaps#get_current_keymap_name',
-      \ },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'keymap' ], [ 'git_path' ], [] ],
-      \   'right': [ [], [], [ 'fileformat', 'fileencoding', 'filetype', 'total_lines' ] ],
-      \ },
-      \ 'inactive': {
-      \   'left': [ [], [ 'git_path' ], [] ],
-      \   'right': [ [], [], [ 'fileformat', 'fileencoding', 'filetype', 'total_lines' ] ],
-      \ },
-      \}
+\ 'component': {
+\   'total_lines': '%L',
+\ },
+\ 'component_function': {
+\   'git_path': 'GitRelativePath',
+\   'keymap': 'keymaps#get_current_keymap_name',
+\ },
+\ 'active': {
+\   'left': [ [ 'mode', 'keymap' ], [ 'git_path' ], [] ],
+\   'right':[[],[],['fileformat','fileencoding','filetype','total_lines']],
+\ },
+\ 'inactive': {
+\   'left': [ [], [ 'git_path' ], [] ],
+\   'right': [[],[],['fileformat','fileencoding', 'filetype', 'total_lines' ] ],
+\ },
+\}
 
 let g:rustfmt_autosave = 1
 
@@ -229,3 +234,17 @@ endif
 let g:rehash256 = 1
 syntax enable
 hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
+
+" --- Binary Edit -------------------
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary && &modifiable | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | execute "%!xxd -r" | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
+
+
+let g:go_version_warning = 0

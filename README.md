@@ -38,3 +38,4 @@ $ curl https://raw.githubusercontent.com/Muratam/dotfiles/minimal/init.sh | bash
 > set newuser="hoge"; echo $newuser"::::::::bash:" | adduser -f /dev/stdin -G wheel && passwd $newuser && su $newuser
 ```
 
+see http://qiita.com/sessions/items/21e3387821f76ea8f456

@@ -1,5 +1,4 @@
 source ~/.bashrc
-
 autoload -U compinit; compinit
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' special-dirs true # ..を補完
@@ -43,7 +42,7 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 
 # history
 export HISTFILE=${HOME}/.zsh_hist
-export HISTSIZE=2000
+export HISTSIZE=10000
 export SAVEHIST=10000
 setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
@@ -54,13 +53,13 @@ setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに�
 
 # command color
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # command hist color
+# ちょっと重いがこれが無いとやってられない
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #fpath=(~/.zsh/zsh-completions/src $fpath)
-
 # 実行時間が3秒以上ならtime表示
 # REPORTTIME=3
-
 # vcs
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
@@ -70,7 +69,7 @@ zstyle ':vcs_info:*' formats '%F{blue}%b%f'
 zstyle ':vcs_info:*' actionformats '%F{blue}%b%f(%F{red}%a%f)'
 add-zsh-hook precmd vcs_info
 
-function _vcs_git_indicator () {
+_vcs_git_indicator() {
   typeset -A git_info
   local git_indicator git_status
   git_status=("${(f)$(git status --porcelain --branch 2> /dev/null)}")
@@ -89,3 +88,13 @@ function _vcs_git_indicator () {
 add-zsh-hook precmd _vcs_git_indicator
 PROMPT="%F{green}[%~ @%m] \$vcs_info_msg_0_ \$_vcs_git_indicator
 %(?!%F{cyan}%1~ %(!.#.$)!%F{red}%1~ \$?) %f"
+
+# autocomplete pass
+if execable pass ; then
+  pcg(){ pass generate -n -c $@ 16 && pass $@ && pass git push origin master ; }
+  pc(){  pass -c $@ ; } # && pass $@ ; }
+  p(){ [[ $1 == "" ]] && echo "$(pass | tr -d '│├─└ '|flattentree)" || pass $@; }
+  compdef _pass pcg
+  compdef _pass pc
+  compdef _pass p
+fi

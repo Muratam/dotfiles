@@ -1,0 +1,116 @@
+{
+    "git.autofetch": false,
+    "editor.scrollBeyondLastLine": false,
+    // "editor.autoClosingBrackets": false,
+    // "editor.tabCompletion": true,
+    "editor.detectIndentation": true,
+    "editor.renderIndentGuides": true,
+    "editor.minimap.enabled": false,
+    "editor.renderLineHighlight": "all",
+    "editor.renderWhitespace": "all",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorStyle": "line",
+    "window.zoomLevel": 0,
+    "window.openFoldersInNewWindow": "on",
+    "window.openFilesInNewWindow": "off",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "menlo",
+    "terminal.integrated.scrollback": 10000,
+    "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "vs-seti",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.formatting.provider": "autopep8",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.DS_Store": true,
+        "**/*.meta": true,
+        "**/*.pyc": true,
+        "**/__pycache__/": true
+    },
+    "background.useFront": false,
+    "background.useDefault": false,
+    "background.customImages": [
+        "/Users/murata/icloud/images/background/chama.jpg",
+        "/Users/murata/icloud/images/background/chama.jpg",
+        "/Users/murata/icloud/images/background/chama.jpg"
+    ],
+    "todohighlight.keywords": [
+        "WARN:",
+        "NOTE:",
+    ],
+    // "code-runner.executorMap": {
+    //     "cpp": "vscode_cpp_run(){ clang++ -std=c++14 -o out $1; if [ -f test.txt ]; then cat test.txt | ./out ;else ./out ; fi ;rm ./out; }; vscode_cpp_run ",
+    //     "python": "python3 ",
+    //     "d": "dub test -q ;echo "
+    // },
+    // "latex-workshop.chktex.enabled": false,
+    // "latex-workshop.latex.tools": [{
+    //     "command": "ptex2pdf",
+    //     "args": [
+    //         "-l",
+    //         "-ot",
+    //         "-kanji=utf8 -synctex=1",
+    //         "%DOC%"
+    //     ]
+    // }],
+    //"latexCompile.compiler": "ptex2pdf -l -ot \"-synctex=1 -file-line-error\"",
+    // "clang.executable": "clang++",
+    // "clang.cxxflags": [
+    // "-std=c++14"
+    // ],
+    // "clang-format.style": "Google",
+    "go.gopath": "/User/murata/go",
+    "[nim]": {
+        "editor.formatOnSave": false
+    },
+    "[go]": {
+        "editor.formatOnSave": true
+    },
+    "[python]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+    },
+    "[csharp]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+    },
+    "terminal.integrated.lineHeight": 1,
+    "gitlens.keymap": "alternate",
+    "csharp.referencesCodeLens.enabled": false,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "telemetry.enableTelemetry": false,
+    "editor.tabSize": 2,
+    "workbench.editor.enablePreview": false,
+    "editor.renderControlCharacters": true,
+    "workbench.tree.horizontalScrolling": true,
+    // "gitlens.historyExplorer.enabled": true,
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "workbench.startupEditor": "newUntitledFile",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "editor.formatOnPaste": true,
+    "gitlens.blame.heatmap.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "files.insertFinalNewline": true,
+    "breadcrumbs.enabled": true,
+    "terminal.integrated.macOptionIsMeta": true,
+    "editor.formatOnSave": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+}

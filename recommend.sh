@@ -1,7 +1,7 @@
 #! /bin/bash
 # iikanji command lists
 declare recommendeds=( git tmux zsh vim tig tree wget unzip less )
-declare convinients=( highlight )
+declare convinients=(  )
 execable(){ [[ -x "$(command -v $1)" ]] || [[ "$(command -v $1)" != "" ]] ; }
 green(){ echo "`tput setaf 2`$@`tput sgr0`"; }
 yellow(){ echo "`tput setaf 3`$@`tput sgr0`"; }
@@ -35,3 +35,11 @@ for cmd in ${convinients[@]} ; do
   [[ "$(command -v $cmd)" == "" ]] && yellow $cmd && $manager $cmd
 done
 green installed
+
+# if not brew finish here
+if [[ "$(command -v brew)" == "" ]]; then
+  yellow "use zsh as default"
+  execable zsh && which zsh | sudo chsh $USER
+  green finished
+  exit 0
+fi
