@@ -34,16 +34,18 @@ alias py='python3 -q'
 alias pip="python3 -m pip"
 alias tree='tree -CF'
 alias pe='perl -pe'
+alias lsport='netstat -ant | grep LISTEN'
 # execable rg && alias grep='rg'
 search-word () {
   SEARCH_PATH=$2 ; [[ $2 == "" ]] && SEARCH_PATH="." ;
-  grep -rI --exclude-dir={$EXCLUDE_DIR} $1 $SEARCH_PATH
+  grep -rI --exclude-dir={$EXCLUDE_DIR} $@ $SEARCH_PATH
 }
 search(){ find . -follow -name "*$@*" 2> /dev/null | grep "$@" ; }
 lns(){ lla | grep -- " -> " | awk '{printf "%-15s %s %s\n",$9,$10,$11}' ; }
 mkdirs(){ mkdir -p "$@" ; cd "$@" ; }
 awkp(){ astr='{ print ' ; for a in $@; do astr+="\$$a, " ; done ; astr+='"" }' ; awk $astr ; }
 cut(){ sed 's/[\t ]\+/\t/g' | /usr/bin/cut "$@";  }
+alias datef='date +%Y%m%dT%H%M%S'
 alias flattentree="$HOME/.homesick/repos/dotfiles/module/python3/flattentree.py"
 # benri commands
 execable highlight && ca(){ highlight -O xterm256 -s rdark --force $@ ; } \

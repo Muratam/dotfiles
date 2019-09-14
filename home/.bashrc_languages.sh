@@ -1,15 +1,17 @@
 # nim
 if [[ -x "$(command -v nim)" ]]; then
   nimcompile(){
-    nim c --hints:off --verbosity:0 --nimcache:./nimcache "--warning[SmallLshouldNotBeUsed]:off" $@ ;
+    nim cpp --hints:off --verbosity:0 \
+      "--warning[SmallLshouldNotBeUsed]:off" $@ ;
   } # for compile
   alias nimr-pure="nimcompile -r" # pure
   nimr(){
     # $@[-1]
     exename="$(echo $1 | sed 's/\.[^\.]*$//')"
-    [[ -f "nimcache/$exename" ]] && mv nimcache/$exename ./
+    # [[ -f "nimcache/$exename" ]] && mv nimcache/$exename ./
     nimcompile $NIMR_COMPILE_FLAG -r $@
-    [[ -f $exename ]] && [[ -d "nimcache" ]] && mv $exename nimcache
+    [[ -f $exename ]] && rm $exename
+    # [[ -f $exename ]] && [[ -d "nimcache" ]] && mv $exename nimcache
   }
   nimrr(){
     NIMR_COMPILE_FLAG="-d:release" nimr $@
@@ -22,3 +24,5 @@ fi
 
 # crystal
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/opt/openssl/lib/pkgconfig
+
+source ~/.gvm/scripts/gvm

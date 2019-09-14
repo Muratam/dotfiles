@@ -10,4 +10,6 @@ __pycache__/
 .pyc
 *completer.hist
 nimcache/
+node_modules/
 Assets/common/Prefavs.meta
+@Themes*

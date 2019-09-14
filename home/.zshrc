@@ -98,3 +98,5 @@ if execable pass ; then
   compdef _pass pc
   compdef _pass p
 fi
+
+eval $(thefuck --alias)
