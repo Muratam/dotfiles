@@ -1,5 +1,6 @@
 #! /bin/bash
 # iikanji command lists
+cd ~/
 declare recommendeds=( git tmux zsh vim tig tree wget unzip less )
 declare convinients=( highlight vnstat nmap )
 execable(){ [[ -x "$(command -v $1)" ]] || [[ "$(command -v $1)" != "" ]] ; }
@@ -66,3 +67,15 @@ green installed
 
 yellow "use zsh as default"
 execable zsh && which zsh | sudo chsh $USER
+green installed
+
+# isucon::schemaspy
+yellow "install schemaspy"
+sudo apt install default-jre
+sudo apt-get install libmysql-java
+wget https://github.com/schemaspy/schemaspy/releases/download/v6.1.0/schemaspy-6.1.0.jar
+mv schemaspy-6.1.0.jar schemaspy.jar
+mkdir schemaspy
+mv schemaspy.jar schemaspy
+green installed
+# java -jar schemaspy.jar -t mysql -dp /usr/share/java/mysql-connector-java.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy
