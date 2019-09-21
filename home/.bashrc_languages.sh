@@ -17,6 +17,15 @@ if [[ -x "$(command -v nim)" ]]; then
     NIMR_COMPILE_FLAG="-d:release" nimr $@
   }
 fi
+# type script
+if [[ -x "$(command -v tsc)" ]]; then
+  tscr(){
+    tsc $1 --outFile a.out.js
+    [[ -f a.out.js ]] && node a.out.js ${@[@]:2}
+    [[ -f a.out.js ]] && rm a.out.js
+  }
+fi
+# go
 if [[ -x "$(command -v go)" ]]; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
