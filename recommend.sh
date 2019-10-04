@@ -64,18 +64,37 @@ green installed
 
 # isucon :: pt-query-digest
 echo "install `tput setaf 3` pt-query-digest `tput sgr0`"
-wget https://www.percona.com/downloads/percona-toolkit/3.0.4/binary/debian/xenial/x86_64/percona-toolkit_3.0.4-1.xenial_amd64.deb
-sudo apt install libdbd-mysql-perl libdbi-perl libio-socket-ssl-perl libnet-ssleay-perl
-sudo dpkg -i percona-toolkit_3.0.4-1.xenial_amd64.deb
+if execable yum; then
+  sudo yum install -y https://www.percona.com/downloads/percona-toolkit/2.2.17/RPM/percona-toolkit-2.2.17-1.noarch.rpm
+elif exeable apt; then
+  wget https://www.percona.com/downloads/percona-toolkit/3.0.4/binary/debian/xenial/x86_64/percona-toolkit_3.0.4-1.xenial_amd64.deb
+  sudo apt install libdbd-mysql-perl libdbi-perl libio-socket-ssl-perl libnet-ssleay-perl
+  sudo dpkg -i percona-toolkit_3.0.4-1.xenial_amd64.deb
+fi
 green installed
 
 # isucon::schemaspy
 yellow "install schemaspy"
-sudo apt install default-jre
-sudo apt-get install libmysql-java
+if execable yum; then
+  sudo yum install -y java-1.8.0-openjdk
+  sudo yum install -y java-1.8.0-openjdk-devel
+elif execable apt; then 
+  sudo apt install default-jre
+fi
 wget https://github.com/schemaspy/schemaspy/releases/download/v6.1.0/schemaspy-6.1.0.jar
 mv schemaspy-6.1.0.jar schemaspy.jar
 mkdir schemaspy
 mv schemaspy.jar schemaspy
+if execable yum; then
+  cd schemaspy
+  wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.17.tar.gz
+  tar xzvf *.tar.gz
+  cp mysql*/*.jar ./
+  # java -jar schemaspy.jar -dp mysql*.jar -...
+  cd ..
+elif execable apt; then 
+  # java -jar schemaspy.jar -t mysql -dp /usr/share/java/mysql-connector-java.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy
+  sudo apt-get install libmysql-java
+fi
+
 green installed
-# java -jar schemaspy.jar -t mysql -dp /usr/share/java/mysql-connector-java.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy
