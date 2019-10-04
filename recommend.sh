@@ -91,10 +91,10 @@ if execable yum; then
   wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.17.tar.gz
   tar xzvf *.tar.gz
   cp mysql*/*.jar ./
-  # java -jar schemaspy.jar -dp mysql*.jar -...
+  echo 'java -jar schemaspy.jar -t mysql -dp mysql*.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy' > readme
   cd ..
 elif execable apt; then 
-  # java -jar schemaspy.jar -t mysql -dp /usr/share/java/mysql-connector-java.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy
+  echo 'java -jar schemaspy.jar -t mysql -dp /usr/share/java/mysql-connector-java.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy' > readme
   sudo apt-get install libmysql-java
 fi
 green installed
