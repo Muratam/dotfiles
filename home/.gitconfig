@@ -9,6 +9,7 @@
     c = commit -m
     d = diff --color-words --ignore-blank-lines -w
     l = log
+    f = fetch
     p = push
     pl = pull
     s = status --short
