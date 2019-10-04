@@ -97,5 +97,12 @@ elif execable apt; then
   # java -jar schemaspy.jar -t mysql -dp /usr/share/java/mysql-connector-java.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy
   sudo apt-get install libmysql-java
 fi
+green installed
 
+yellow "install nodejs v10.0"
+cd ~
+curl https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash
+export NVM_DIR="~/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
+nvm install v10.0
 green installed
