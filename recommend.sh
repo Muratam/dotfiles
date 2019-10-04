@@ -86,17 +86,18 @@ wget https://github.com/schemaspy/schemaspy/releases/download/v6.1.0/schemaspy-6
 mv schemaspy-6.1.0.jar schemaspy.jar
 mkdir schemaspy
 mv schemaspy.jar schemaspy
+cd schemaspy
 if execable yum; then
-  cd schemaspy
   wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.17.tar.gz
   tar xzvf *.tar.gz
   cp mysql*/*.jar ./
   echo 'java -jar schemaspy.jar -t mysql -dp mysql*.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy' > readme
-  cd ..
 elif execable apt; then 
   echo 'java -jar schemaspy.jar -t mysql -dp /usr/share/java/mysql-connector-java.jar -db isucari -host 127.0.0.1 -port 3306 -s isucari -u isucari -p isucari -o schemaspy' > readme
   sudo apt-get install libmysql-java
 fi
+cd ..
+
 green installed
 
 yellow "install nodejs v10.0"
