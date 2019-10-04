@@ -46,6 +46,7 @@ execable highlight && alias ca='highlight -O xterm256 -s rdark --force'
 execable tldr && alias f='tldr $(fc -ln -1 | tail -n 1 | p 1)'
 [[ "$(command -v tac)" == "" ]] && alias tac='tail -r'
 
+execable nvm && nvm install v10.0 > /dev/null 2> /dev/null
 ################################
 ### SET ENVIRONMENT VARIABLE ###
 ################################
