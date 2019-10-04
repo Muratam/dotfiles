@@ -58,15 +58,15 @@ unzip alp_linux_amd64.zip
 sudo install ./alp /usr/local/bin
 green installed
 
+yellow "use zsh as default"
+execable zsh && which zsh | sudo chsh $USER
+green installed
+
 # isucon :: pt-query-digest
 echo "install `tput setaf 3` pt-query-digest `tput sgr0`"
 wget https://www.percona.com/downloads/percona-toolkit/3.0.4/binary/debian/xenial/x86_64/percona-toolkit_3.0.4-1.xenial_amd64.deb
 sudo apt install libdbd-mysql-perl libdbi-perl libio-socket-ssl-perl libnet-ssleay-perl
 sudo dpkg -i percona-toolkit_3.0.4-1.xenial_amd64.deb
-green installed
-
-yellow "use zsh as default"
-execable zsh && which zsh | sudo chsh $USER
 green installed
 
 # isucon::schemaspy
