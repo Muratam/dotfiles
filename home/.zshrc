@@ -93,7 +93,7 @@ status(){ sudo systemctl status $1 ; }
 restart(){ sudo systemctl restart $1 ; }
 start(){ sudo systemctl start $1; }
 stop(){ sudo systemctl stop $1; }
-compdef _systemctl jc
+compdef _systemctl sc
 # Goアプリのログが見える用にすると楽
 jc(){ journalctl -xe $@ ; }
 compdef _journalctl jc
