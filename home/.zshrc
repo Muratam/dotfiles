@@ -88,15 +88,13 @@ PROMPT="%F{green}[%~ @%m] \$vcs_info_msg_0_ \$_vcs_git_indicator
 %(?!%F{cyan}%1~ %(!.#.$)!%F{red}%1~ \$?) %f"
 
 # sc jc
-if execable systemctl ; then
-  sc(){ sudo systemctl $2 $1 ; }
-  compdef _systemctl sc
-fi
-if execable systemctl ; then
-  # Goアプリのログが見える用にすると楽
-  jc(){ journalctl -xe $@ ; }
-  compdef _journalctl jc
-fi
-
-
+sc(){ sudo systemctl $@ ; }
+status(){ sudo systemctl status $1 ; }
+restart(){ sudo systemctl restart $1 ; }
+start(){ sudo systemctl start $1; }
+stop(){ sudo systemctl stop $1; }
+compdef _systemctl jc
+# Goアプリのログが見える用にすると楽
+jc(){ journalctl -xe $@ ; }
+compdef _journalctl jc
 
