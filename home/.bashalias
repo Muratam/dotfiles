@@ -80,3 +80,4 @@ t(){
   [[ $1 != "" ]] && tmux a -t $1
 }
 
+export LESSCHARSET=utf-8
