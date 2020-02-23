@@ -99,4 +99,14 @@ if execable pass ; then
   compdef _pass p
 fi
 
+if execable systemctl ; then
+  sc(){ sudo systemctl $2 $1 ; }
+  compdef _systemctl sc
+fi
+if execable systemctl ; then
+  # Goアプリのログが見える用にすると楽
+  jc(){ journalctl -xe $@ ; }
+  compdef _journalctl jc
+fi
+
 eval $(thefuck --alias)

@@ -10,7 +10,7 @@
     "editor.renderWhitespace": "all",
     "editor.cursorBlinking": "smooth",
     "editor.cursorStyle": "line",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "window.openFoldersInNewWindow": "on",
     "window.openFilesInNewWindow": "off",
     "terminal.integrated.shell.osx": "/bin/zsh",
@@ -97,7 +97,6 @@
     "editor.tabSize": 2,
     "workbench.editor.enablePreview": false,
     "editor.renderControlCharacters": true,
-    "workbench.tree.horizontalScrolling": true,
     // "gitlens.historyExplorer.enabled": true,
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "workbench.startupEditor": "newUntitledFile",
@@ -115,4 +114,33 @@
     "files.trimTrailingWhitespace": true,
     "python.jediMemoryLimit": -1,
     "terminal.integrated.rendererType": "dom",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "toolchain",
+            "tools": []
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.chktex.enabled": false,
+    "latex-workshop.latex.tools": [
+        {
+            "command": "pbibtex",
+            "args": [
+                "%DOCFILE%",
+                "-kanji=utf8"
+            ],
+            "name": "pbibtex"
+        },
+        {
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8",
+                "-synctex=1",
+                "%DOC%"
+            ],
+            "name": "ptex2pdf"
+        }
+    ]
 }

@@ -35,6 +35,7 @@ alias pip="python3 -m pip"
 alias tree='tree -CF'
 alias pe='perl -pe'
 alias lsport='netstat -ant | grep LISTEN'
+alias dx='docker run --rm -it'
 # execable rg && alias grep='rg'
 search-word () {
   SEARCH_PATH=$2 ; [[ $2 == "" ]] && SEARCH_PATH="." ;
@@ -93,3 +94,6 @@ fi
 # include languages settings (for miner languages)
 source ~/.bashrc_languages.sh
 export-path ~/.nimble/bin
+
+export NVM_DIR="/Users/murata/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

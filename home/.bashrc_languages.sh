@@ -2,7 +2,9 @@
 if [[ -x "$(command -v nim)" ]]; then
   nimcompile(){
     nim cpp --hints:off --verbosity:0 \
-      "--warning[SmallLshouldNotBeUsed]:off" $@ ;
+      "--warning[SmallLshouldNotBeUsed]:off" \
+      $@ ;
+      # "--warning[UnusedImport]:off" \
   } # for compile
   alias nimr-pure="nimcompile -r" # pure
   nimr(){
@@ -16,13 +18,18 @@ if [[ -x "$(command -v nim)" ]]; then
   nimrr(){
     NIMR_COMPILE_FLAG="-d:release" nimr $@
   }
+  nimrepl(){
+    choosenim 0.19.2 > /dev/null
+    rlwrap replim $@  # | sed -e '1,5d'
+  }
 fi
 # type script
 if [[ -x "$(command -v tsc)" ]]; then
   tscr(){
-    tsc $1 --outFile a.out.js
-    [[ -f a.out.js ]] && node a.out.js ${@[@]:2}
-    [[ -f a.out.js ]] && rm a.out.js
+    exename="$(echo $1 | sed 's/\.[^\.]*$//')".js
+    tsc $1
+    [[ -f $exename ]] && node $exename ${@[@]:2}
+    [[ -f $exename ]] && rm $exename
   }
 fi
 # go
