@@ -63,6 +63,7 @@ export-path ~/.local/bin
 export-path /usr/local/bin
 # local installs
 export-path ~/.usr/bin
+export-path /snap/bin
 
 # for isucon
 export-path ~/bin
