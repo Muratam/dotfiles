@@ -22,6 +22,7 @@ alias du='du -h'
 alias od='od -c'
 alias su='su -l'
 alias grep='grep --color=auto'
+alias ports='netstat -an | grep LISTEN | grep tcp'
 
 # aliases
 alias la='ls -a'
