@@ -112,7 +112,7 @@ green installed
 
 # isutory & logs
 cd ~
-mkdir logs && cd logs
+mkdir logs ; cd logs
 git clone https://github.com/1m-yen-driven/isutory
 cd ~/logs/isutory
 pip3 install -r requirements.txt
