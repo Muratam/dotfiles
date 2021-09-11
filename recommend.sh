@@ -115,6 +115,7 @@ cd ~
 mkdir logs ; cd logs
 curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/83069a31037f1d505874d49ce4fc6b1bf60b6d59/parse.sh > ~/logs/parse.sh
 chmod 755 ~/logs/parse.sh
+sudo timedatectl set-timezone Asia/Tokyo
 
 git clone https://github.com/1m-yen-driven/isutory
 cd ~/logs/isutory
@@ -122,5 +123,3 @@ pip3 install -r requirements.txt
 
 cd ~/logs/
 go install github.com/aokabi/ngraphinx@latest
-
-sudo timedatectl set-timezone Asia/Tokyo
