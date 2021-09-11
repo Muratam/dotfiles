@@ -113,7 +113,7 @@ green installed
 # logs &isutory
 cd ~
 mkdir logs ; cd logs
-curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/a707ab9b26000d3cfcd5a595a3044fb0e37c921d/parse.sh > ~/logs/parse.sh
+curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/8b05c22c6b48bcf6e0f0faf75cb86df27092a9c6/parse.sh > ~/logs/parse.sh
 chmod 755 ~/logs/parse.sh
 
 git clone https://github.com/1m-yen-driven/isutory
