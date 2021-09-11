@@ -113,7 +113,7 @@ green installed
 # logs &isutory
 cd ~
 mkdir logs ; cd logs
-curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/83069a31037f1d505874d49ce4fc6b1bf60b6d59/parse.sh > ~/logs/parse.sh
+curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/dce1050d9b7b935efd42c7c2a0e8a5968bac4fda/parse.sh > ~/logs/parse.sh
 chmod 755 ~/logs/parse.sh
 sudo timedatectl set-timezone Asia/Tokyo
 
