@@ -115,7 +115,7 @@ cd ~
 mkdir logs ; cd logs
 git clone https://github.com/1m-yen-driven/isutory
 cd ~/logs/isutory
+curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/a707ab9b26000d3cfcd5a595a3044fb0e37c921d/parse.sh > ~/logs/parse.sh
+chmod 755 ~/logs/parse.sh
 pip3 install -r requirements.txt
-cd ~/logs
-curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/3e2a0fe870e380a7b30ef278392faae87cc845e5/parse.sh > parse.sh
-chmod 755 parse.sh
+
