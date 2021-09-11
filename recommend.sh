@@ -110,13 +110,14 @@ green installed
 # nvm install v10.0
 # green installed
 
-# isutory & logs
+# logs &isutory
 cd ~
 mkdir logs ; cd logs
+curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/a707ab9b26000d3cfcd5a595a3044fb0e37c921d/parse.sh > ~/logs/parse.sh
+chmod 755 ~/logs/parse.sh
+
 git clone https://github.com/1m-yen-driven/isutory
 cd ~/logs/isutory
 pip3 install -r requirements.txt
 
-curl https://gist.githubusercontent.com/Muratam/b0e8c483bad0d28e1046de0560faa529/raw/a707ab9b26000d3cfcd5a595a3044fb0e37c921d/parse.sh > ~/logs/parse.sh
-chmod 755 ~/logs/parse.sh
 
