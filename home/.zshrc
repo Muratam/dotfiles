@@ -1,3 +1,6 @@
+shopt() {}
+complete() {}
+
 source ~/.bashrc
 
 autoload -U compinit; compinit
