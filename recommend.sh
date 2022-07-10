@@ -121,5 +121,6 @@ git clone https://github.com/1m-yen-driven/isutory
 cd ~/logs/isutory
 pip3 install -r requirements.txt
 
+# sudo snap install go --classic
 cd ~/logs/
 go install github.com/aokabi/ngraphinx@latest
