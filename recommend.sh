@@ -119,6 +119,7 @@ sudo timedatectl set-timezone Asia/Tokyo
 
 git clone https://github.com/1m-yen-driven/isutory
 cd ~/logs/isutory
+# sudo apt install python3-pip
 pip3 install -r requirements.txt
 
 # sudo snap install go --classic
