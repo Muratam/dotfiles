@@ -48,7 +48,7 @@ green installed
 # isucon :: netdata (localhost:19999)
 echo "install `tput setaf 3` netdata `tput sgr0`"
 $manager netdata
-# yes | bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)
+# bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh) --install-version 1.35.0
 green installed
 
 # isucon :: alp
