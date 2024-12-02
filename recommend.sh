@@ -126,4 +126,4 @@ python3 -m pip install -r requirements.txt
 
 # sudo snap install go --classic
 cd ~/logs/
-go install github.com/aokabi/ngraphinx@latest
+go install github.com/aokabi/ngraphinx/v2@latest
